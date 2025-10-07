@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+message Animal
+{
+  int32 animal_id = 1;
+  string type = 2;
+  int32 weight = 3;
+}
+
+message Part
+{
+  int32 animal_id = 1;
+  double weight = 2;
+  string part_type = 3; // e.g. "Head", "Leg", "Guts", "Meat"
+}
+
+message Recall{
+  string sup_packing = 1;
+  int32 weight = 2;
+  int32 animal_id = 3;
+  string animal_type = 4;
+}
+
+message StationOne{
+  int32 animal_id = 1;
+  int32 weight = 2;
+  string animal_type = 3;
+}
+
+message StationTwo{
+  double head_prt = 1;
+  double guts_prtm = 2;
+  double leg_prt = 3;
+  int32 tray_max_weight = 4;
+  int32 tray_counter = 5;
+}
+
+message Tray{
+  int32 max_weight = 1;
+  int32 tray_id = 2;
+  string part_type = 3;
+  repeated Part parts = 4;
+  int32 current_weight = 5;
+}
+
+message StationThree{
+
+}
+
+message Product{
+  int32 product_id = 1;
+  string product_type = 2;
+  repeated Tray tray_reference = 3;
+  int32 total_weight = 4;
+}

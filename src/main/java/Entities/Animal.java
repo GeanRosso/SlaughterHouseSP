@@ -1,26 +1,30 @@
 package Entities;
 
+import jakarta.persistence.*;
+
 import java.util.Objects;
-@Enteties
+@Entity
 public class Animal
 {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int animalId;
+  @Column (name = "type", nullable = false)
   private String type;
-  private int weight;
-  private Head head;
-  private  Leg leg;
-  private Guts guts;
-  private Meat meat;
+  @Column (name = "weight", nullable = false)
+  private double weight;
 
-  public Animal(String type, int weight, int animalId, Head head, Leg leg, Guts guts, Meat meat)
+
+  public Animal(String type, double weight, int animalId)
   {
     this.animalId = animalId; //set this on StationOne later
     this.type = type;
     this.weight = weight;
-    this.head = head;
-    this.leg = leg;
-    this.guts = guts;
-    this.meat = meat;
+  }
+
+  public Animal()
+  {
+
   }
 
   public int getAnimalId()
@@ -33,47 +37,7 @@ public class Animal
     this.animalId = animalId;
   }
 
-  public Meat getMeat()
-  {
-    return this.meat;
-  }
-
-  public void setMeat(Meat meat)
-  {
-    this.meat = meat;
-  }
-
-  public Guts getGuts()
-  {
-    return this.guts;
-  }
-
-  public void setGuts(Guts guts)
-  {
-    this.guts = guts;
-  }
-
-  public Leg getLeg()
-  {
-    return leg;
-  }
-
-  public void setLeg(Leg leg)
-  {
-    this.leg = leg;
-  }
-
-  public Head getHead()
-  {
-    return head;
-  }
-
-  public void setHead(Head head)
-  {
-    this.head = head;
-  }
-
-  public int getWeight()
+  public double getWeight()
   {
     return weight;
   }
@@ -99,8 +63,6 @@ public class Animal
       return false;
     Animal animal = (Animal) o;
     return animalId == animal.animalId && weight == animal.weight
-        && Objects.equals(type, animal.type) && Objects.equals(head,
-        animal.head) && Objects.equals(leg, animal.leg) && Objects.equals(guts,
-        animal.guts) && Objects.equals(meat, animal.meat);
+        && Objects.equals(type, animal.type);
   }
 }

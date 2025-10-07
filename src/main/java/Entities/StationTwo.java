@@ -1,58 +1,104 @@
 package Entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/*
+At the second station,the animals are cut into smaller parts.
+Each part is weighed and registered, including a reference
+to which animal it comes from.
+The parts are put into trays with each tray containing only one type of parts.
+Each tray has a maximum weight capacity
+ */
+@Service
 public class StationTwo
 {
-  private double headPrt, gutsPrtm, legPrt;
-  private  int trayMaxWeight;
+  private double headWeight, gutsWeight, legWeight, meatWeight;
+  private int trayMaxWeight;
   private int trayCounter = 1;
+  private HeadRepository headRepository;
+  private GutsRepository gutsRepository;
+  private LegRepository legRepository;
+  private MeatRepository meatRepository;
 
-  public StationTwo(double headPrt, double gutsPrtm, double legPrt, int trayMaxWeight){
-    double sum =  headPrt + gutsPrtm + legPrt;
-    this.headPrt = headPrt;
-    this.gutsPrtm = gutsPrtm;
-    this.legPrt = legPrt;
+  public StationTwo(double headPrt, double gutsPrtm, double legPrt,
+      int trayMaxWeight)
+  {
+    double sum = headPrt + gutsPrtm + legPrt;
+    this.headWeight = headPrt;
+    this.gutsWeight = gutsPrtm;
+    this.legWeight = legPrt;
     this.trayMaxWeight = trayMaxWeight;
   }
-  public StationTwo()
+
+  public StationTwo(HeadRepository headRepository, GutsRepository gutsRepository,LegRepository legRepository, MeatRepository meatRepository)
   {
-    this(0.10,0.15,0.25,5000); // static valuess
+  this.headRepository = headRepository;
+  this.gutsRepository = gutsRepository;
+  this.legRepository = legRepository;
+  this.meatRepository = meatRepository;
   }
-public void cut(Animal animal)
-{
-  int total = animal.getWeight();
-  int headW = (int) Math.round(total*headPrt);
-  int gutsW = (int) Math.round(total*gutsPrtm);
-  int legW = (int) Math.round(total*legPrt);
-  int meatW = total-(headW+gutsW+legW);
 
-  animal.setHead(new Head(animal,headW));
-  animal.setLeg(new Leg(animal, legW));
-  animal.getGuts();
-  animal.getMeat();
+  public List<Object> cut(Animal animal)
+  {
+    int total = (int) animal.getWeight();
+    int headW = (int) Math.round(total * headWeight);
+    int gutsW = (int) Math.round(total * gutsWeight);
+    int legW = (int) Math.round(total * legWeight);
+    int meatW = total - (headW + gutsW + legW);
+    Head head = new Head(animal.getAnimalId(),headW, 0);
+    Guts guts = new Guts(animal.getAnimalId(),gutsW, 0);
+    Leg leg = new Leg(animal.getAnimalId(),legW, 0);
+    Meat meat = new Meat(animal.getAnimalId(),meatW, 0);
+    head = headRepository.save(head);
+    guts = gutsRepository.save(guts);
+    leg = legRepository.save(leg);
+    meat = meatRepository.save(meat);
+    return List.of(head,guts,leg,meat);
+  }
+
+  public List<Tray> packIntoTrays(List<Animal> parts)
+  {
+    Map<String, List<Object>> byType = new HashMap<>();
+    for (Object p : parts)
+    {
+      byType.computeIfAbsent(partType(p), k -> new ArrayList<>()).add(p);
+    }
+    List<Tray> trays = new ArrayList<>();
+    for (Map.Entry<String, List<Object>> entry : byType.entrySet())
+    {
+      String type = entry.getKey();
+      List<Object> group = entry.getValue();
+      Tray tray = new Tray(trayCounter++, trayMaxWeight, type);
+      for(Object p : group)
+      {
+        int w = partWeight(p);
+        if (tray.getCurrentWeight() + w > tray.getMaxWeight()){
+          trays.add(tray);
+          tray = new Tray(trayCounter++, trayMaxWeight, type);
+        }
+      tray.addPart((Part) p);
+      }
+      if (!tray.getParts().isEmpty()) trays.add(tray);
+    }
+    return trays;
+  }
+  private String partType(Object p) {
+    if (p instanceof Head) return "HEAD";
+    if (p instanceof Leg)  return "LEG";
+    if (p instanceof Guts) return "GUTS";
+    if (p instanceof Meat) return "MEAT";
+    throw new IllegalArgumentException("Unknown part class: " + p.getClass());
+  }
+  private int partWeight(Object p) {
+    if (p instanceof Head h) return (int) h.getWeight();
+    if (p instanceof Leg l)  return (int) l.getWeight();
+    if (p instanceof Guts g) return (int) g.getWeight();
+    if (p instanceof Meat m) return (int) m.getWeight();
+    throw new IllegalArgumentException("Unknown part class: " + p.getClass());
 }
-public List<Tray> packIntoTrays(Animal animal)
-{
-  List<Tray> trays =  new ArrayList<>();
-  Tray headTray = new Tray(trayCounter++, trayMaxWeight, "HEAD");
-  headTray.addPart(animal.getHead());
-  trays.add(headTray);
-
-  Tray legTray = new Tray(trayCounter++, trayMaxWeight, "LEG");
-  legTray.addPart(animal.getLeg());
-  trays.add(legTray);
-
-  Tray gutsTray = new Tray(trayCounter++, trayMaxWeight, "GUTS");
-  gutsTray.addPart(animal.getGuts());
-  trays.add(gutsTray);
-
-  Tray meatTray = new Tray(trayCounter++, trayMaxWeight, "MEAT");
-  meatTray.addPart(animal.getMeat());
-  trays.add(meatTray);
-
-  return trays;
-}
-
 }

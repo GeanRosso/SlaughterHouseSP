@@ -1,5 +1,5 @@
 package Entities;
-
+//to be continued
 public class Recall
 {
   private String supPacking;

@@ -1,16 +1,22 @@
 package Entities;
 
+import jakarta.persistence.Column;
+
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Objects;
 
 public class Tray
 {
+  @Column(name = "maxWeight", nullable = false)
   private int maxWeight;
+  @Column (name = "id", nullable = false)
   private int trayId;
   private String partType;
-  private List<Object> parts = new ArrayList<>();
+  private List<Part> parts = new ArrayList<>();
   private int currentWeight;
+
+  public Tray(){}
 
   public Tray(int maxWeight, int trayId, String partType)
   {
@@ -39,21 +45,25 @@ public class Tray
     return partType;
   }
 
-  public List<Object> getParts()
+  public List<Part> getParts()
   {
     return List.copyOf(parts);
   }
 
-  public void addPart(Object part)
+  public void addPart(Part part)
   {
-    int weight = 0;
-    if (part instanceof Head h)
+    double weight = 0;
+    if (part instanceof Head h && Objects.equals
+        (getPartType(), h.getPartType()))
       weight = h.getWeight();
-    else if (part instanceof Leg l)
+    else if (part instanceof Leg l && Objects.equals
+        (getPartType(),l.getPartType()))
       weight = l.getWeight();
-    else if (part instanceof Guts g)
+    else if (part instanceof Guts g && Objects.equals
+        (getPartType(),g.getPartType()))
       weight = g.getWeight();
-    else if (part instanceof Meat m)
+    else if (part instanceof Meat m && Objects.equals
+        (getPartType(),m.getPartType()))
       weight = m.getWeight();
     if (currentWeight + weight > maxWeight)
       if (!part.getClass().getSimpleName().equalsIgnoreCase(partType))
