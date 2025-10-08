@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface HeadRepository extends JpaRepository<Head, Integer>
 {
-  List<Head> findByAnimalId(int animalId);
+  List<Head> findByAnimal_AnimalId(int animalId);
 }

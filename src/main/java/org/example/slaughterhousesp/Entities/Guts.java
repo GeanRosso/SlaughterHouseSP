@@ -1,9 +1,18 @@
 package org.example.slaughterhousesp.Entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
 public class Guts extends Part
 {
-   public Guts(int animalId, double weight, int trayId)
+   public Guts(Animal animal, double weight, Tray tray)
    {
-     super(animalId, weight,"Guts",trayId);
+     super(animal, weight,"Guts",tray);
    }
+
+    public Guts()
+    {
+        super();
+    }
 }

@@ -15,12 +15,11 @@ public class Animal
   private double weight;
 
 
-  public Animal(String type, double weight, int animalId)
-  {
-    this.animalId = animalId; //set this on StationOne later
-    this.type = type;
-    this.weight = weight;
-  }
+    public Animal(String type, double weight) {
+        this.type = type;
+        this.weight = weight;
+    }
+
 
   public Animal()
   {

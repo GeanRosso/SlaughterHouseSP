@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface GutsRepository extends JpaRepository<Guts, Integer>
+public interface TrayRepository extends JpaRepository<Tray, Integer>
 {
-  List<Guts> findByAnimal_AnimalId(int animalId);
+    List<Tray> findById(int partId);
 }

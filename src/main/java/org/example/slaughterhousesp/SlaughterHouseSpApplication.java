@@ -17,30 +17,30 @@ import java.util.List;
   }
     @Bean
     CommandLineRunner testSimulation(StationOne stationOne,
-      StationTwo stationTwo,
-      StationThree stationThree) {
+                                    StationTwo stationTwo,
+                                    AnimalRepository animalRepository,
+                                    MeatRepository meatRepository,
+                                     HeadRepository headRepository,
+                                     LegRepository legRepository,
+                                     GutsRepository gutsRepository,
+                                     TrayRepository trayRepository)
+    {
+
     return args -> {
       System.out.println("=== Slaughterhouse simulation starting ===");
 
 
-      Animal animal = new Animal("Cow", 1000, 1); // id assigned later in DB
-      System.out.println("Animal registered: " + animal);
+     // Animal animal = new Animal("Cow", 1000);
+        // stationOne.registerAnimal(animal);
+      //System.out.println("Animal registered: " + animal);
 
+        Animal givenAnimeFromDb = animalRepository.findById(1).orElseThrow(()-> new RuntimeException("Animal not found"));
 
-      List<Part> parts = stationTwo.cut(animal);
-      System.out.println("Animal cut into parts:");
-      parts.forEach(System.out::println);
+        List<Part> parts = stationTwo.cut(givenAnimeFromDb);
+        System.out.println("Animal cut into parts:");
+        parts.forEach(System.out::println);
 
-
-      List<Tray> trays = stationTwo.packIntoTrays(parts);
-      System.out.println("Packed into trays:");
-      trays.forEach(System.out::println);
-
-
-      Product product = stationThree.packHalfAnimal(trays);
-      System.out.println("Created product: " + product);
-
-      System.out.println("=== Simulation finished successfully ===");
+      System.out.println("=== Simulation stage 2 finished successfully ===");
     };
   }
 }

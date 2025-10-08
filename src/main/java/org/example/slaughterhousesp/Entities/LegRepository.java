@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface LegRepository extends JpaRepository<Leg, Integer>
 {
-  List<Leg> findByAnimalId(int animalId);
+  List<Leg> findByAnimal_AnimalId(int animalId);
 }

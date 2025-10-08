@@ -1,11 +1,10 @@
 package org.example.slaughterhousesp.Entities;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /*
 At the second station,the animals are cut into smaller parts.
@@ -17,76 +16,72 @@ Each tray has a maximum weight capacity
 @Service
 public class StationTwo
 {
-  private double headWeight, gutsWeight, legWeight, meatWeight;
+    private final PartsRepository partsRepository;
+    private double headWeightPercent, gutsWeightPercent, legWeightPercent, meatWeightPercent;
   private int trayMaxWeight;
   private int trayCounter = 1;
   private HeadRepository headRepository;
   private GutsRepository gutsRepository;
   private LegRepository legRepository;
   private MeatRepository meatRepository;
+  private TrayRepository trayRepository;
 
-  public StationTwo(double headPrt, double gutsPrtm, double legPrt,
-      int trayMaxWeight)
-  {
-    double sum = headPrt + gutsPrtm + legPrt;
-    this.headWeight = headPrt;
-    this.gutsWeight = gutsPrtm;
-    this.legWeight = legPrt;
-    this.trayMaxWeight = trayMaxWeight;
-  }
-
-  public StationTwo(HeadRepository headRepository, GutsRepository gutsRepository,LegRepository legRepository, MeatRepository meatRepository)
+    @Autowired
+  public StationTwo(HeadRepository headRepository, GutsRepository gutsRepository
+            , LegRepository legRepository, MeatRepository meatRepository
+    , TrayRepository trayRepository, PartsRepository partsRepository)
   {
   this.headRepository = headRepository;
   this.gutsRepository = gutsRepository;
   this.legRepository = legRepository;
   this.meatRepository = meatRepository;
+  this.trayRepository = trayRepository;
+      this.partsRepository = partsRepository;
   }
 
+
+
+
+  // make default cut percentages
   public List<Part> cut(Animal animal)
   {
-    int total = (int) animal.getWeight();
-    int headW = (int) Math.round(total * headWeight);
-    int gutsW = (int) Math.round(total * gutsWeight);
-    int legW = (int) Math.round(total * legWeight);
-    int meatW = total - (headW + gutsW + legW);
-    Head head = new Head(animal.getAnimalId(),headW, 0);
-    Guts guts = new Guts(animal.getAnimalId(),gutsW, 0);
-    Leg leg = new Leg(animal.getAnimalId(),legW, 0);
-    Meat meat = new Meat(animal.getAnimalId(),meatW, 0);
-    head = headRepository.save(head);
-    guts = gutsRepository.save(guts);
-    leg = legRepository.save(leg);
-    meat = meatRepository.save(meat);
+      headWeightPercent = 0.10;
+      gutsWeightPercent = 0.20;
+      legWeightPercent = 0.30;
+      List<Tray> trays = new ArrayList<>();
+      for (int i = 0; i < 4; i++)
+      {
+          Tray tray = new Tray(animal.getWeight()*1.5, animal, null);
+          // make it null for now, will set part later
+          trays.add(tray);
+      }
+      trayRepository.saveAll(trays); // insert trays to db first to get their ids
+    double total = animal.getWeight();
+    double headW = total * headWeightPercent;
+    double gutsW = total * gutsWeightPercent;
+    double legW = total * legWeightPercent;
+    double meatW = total - (headW + gutsW + legW);
+    Head head = new Head(animal,headW, trays.get(0));
+    Guts guts = new Guts(animal,gutsW, trays.get(1));
+    Leg leg = new Leg(animal,legW, trays.get(2));
+    Meat meat = new Meat(animal,meatW, trays.get(3));
+
+    head = partsRepository.save(head);
+    guts = partsRepository.save(guts);
+    leg = partsRepository.save(leg);
+    meat = partsRepository.save(meat);
+
+    // set part in tray since it's still null
+      trays.get(0).setPart(head);
+      trays.get(1).setPart(guts);
+      trays.get(2).setPart(leg);
+      trays.get(3).setPart(meat);
+      trayRepository.saveAll(trays); // this is not insert, but update since trays already have ids
+
     return List.of(head,guts,leg,meat);
   }
 
-  public List<Tray> packIntoTrays(List<Part> parts)
-  {
-    Map<String, List<Part>> byType = new HashMap<>();
-    for (Part p : parts)
-    {
-      byType.computeIfAbsent(partType(p), k -> new ArrayList<>()).add(p);
-    }
-    List<Tray> trays = new ArrayList<>();
-    for (Map.Entry<String, List<Part>> entry : byType.entrySet())
-    {
-      String type = entry.getKey();
-      List<Part> group = entry.getValue();
-      Tray tray = new Tray(trayCounter++, trayMaxWeight, type);
-      for(Part p : group)
-      {
-        int w = partWeight(p);
-        if (tray.getCurrentWeight() + w > tray.getMaxWeight()){
-          trays.add(tray);
-          tray = new Tray(trayCounter++, trayMaxWeight, type);
-        }
-      tray.addPart((Part) p);
-      }
-      if (!tray.getParts().isEmpty()) trays.add(tray);
-    }
-    return trays;
-  }
+
   private String partType(Part p) {
     if (p instanceof Head) return "HEAD";
     if (p instanceof Leg)  return "LEG";

@@ -1,81 +1,86 @@
 package org.example.slaughterhousesp.Entities;
 
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
 public class Tray
 {
-  @Column(name = "maxWeight", nullable = false)
-  private int maxWeight;
-  @Column (name = "id", nullable = false)
-  private int trayId;
-  private String partType;
+    // rule to link with FK: @ManyToOne, and @JoinColumn. use association
+  @Column(name = "maxweight", nullable = false)
+  private double maxWeight;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id", nullable = false)
+  private int id;
+  @OneToMany(mappedBy = "tray", cascade = CascadeType.ALL) //which is the name of the attribute in Part class
+  // this will not be in the database, it is just for us to easily access the parts in a tray
+  // FK for Part column
   private List<Part> parts = new ArrayList<>();
-  private int currentWeight;
+    // Foreign key column of Animal
+    @ManyToOne // this mean many parts can be from one animal
+    @JoinColumn (name = "animal_id", nullable=false)
+    private Animal animal; // the id of animal_id is possible to be repeated in this table
+    // Foreign key column of Tray
+    @ManyToOne // this mean many parts can be in one tray
+    @JoinColumn(name = "part_id", nullable = true)
+    private Part part; // the id of tray_id is possible to be repeated in this table
+  private double currentWeight;
 
   public Tray(){}
 
-  public Tray(int maxWeight, int trayId, String partType)
-  {
-    this.maxWeight = maxWeight;
-    this.trayId = trayId;
-    this.partType = partType;
-  }
+    public Tray(double maxWeight, Animal animal, Part part)
+    {
+        this.maxWeight = maxWeight;
+        this.animal = animal;
+        this.part = part;
+    }
 
-  public int getMaxWeight()
+
+  public double getMaxWeight()
   {
     return maxWeight;
   }
 
-  public int getTrayId()
-  {
-    return trayId;
-  }
+    public int getId()
+    {
+        return id;
+    }
 
-  public int getCurrentWeight()
+    public double getCurrentWeight()
   {
     return currentWeight;
   }
 
-  public String getPartType()
-  {
-    return partType;
-  }
 
-  public List<Part> getParts()
+    public List<Part> getParts()
   {
     return List.copyOf(parts);
   }
 
-  public void addPart(Part part)
+    public void setPart(Part part)
+    {
+        this.part = part;
+    }
+
+    public void addPart(Part part)
   {
     double weight = 0;
-    if (part instanceof Head h && Objects.equals
-        (getPartType(), h.getPartType()))
+    if (part instanceof Head h)
       weight = h.getWeight();
-    else if (part instanceof Leg l && Objects.equals
-        (getPartType(),l.getPartType()))
+    else if (part instanceof Leg l )
       weight = l.getWeight();
-    else if (part instanceof Guts g && Objects.equals
-        (getPartType(),g.getPartType()))
+    else if (part instanceof Guts g)
       weight = g.getWeight();
-    else if (part instanceof Meat m && Objects.equals
-        (getPartType(),m.getPartType()))
+    else if (part instanceof Meat m )
       weight = m.getWeight();
     if (currentWeight + weight > maxWeight)
-      if (!part.getClass().getSimpleName().equalsIgnoreCase(partType))
         parts.add(part);
     currentWeight += weight;
   }
 
-  @Override public boolean equals(Object o)
-  {
-    if (o == null || getClass() != o.getClass())
-      return false;
-    Tray tray = (Tray) o;
-    return maxWeight == tray.maxWeight && trayId == tray.trayId;
-  }
+
 }

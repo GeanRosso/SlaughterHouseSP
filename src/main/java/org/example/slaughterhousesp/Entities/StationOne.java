@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class StationOne
 {
-  private final AnimalRepository animalRepo;
+  private AnimalRepository animalRepo;
 
   public StationOne(AnimalRepository animalRepo)
   {

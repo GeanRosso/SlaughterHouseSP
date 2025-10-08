@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface MeatRepository extends JpaRepository<Meat, Integer>
 {
-  List<Meat> findByAnimalId(int animalId);
+  List<Meat> findByAnimal_AnimalId(int animalId);
 }
