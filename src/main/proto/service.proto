@@ -35,6 +35,14 @@ message StationTwo{
   int32 tray_counter = 5;
 }
 
+message Product {
+  int64 id = 1;
+  string product_type = 2;
+  int32 total_weight = 3;
+  repeated int32 tray_references = 4;
+}
+
+
 message Tray{
   int32 max_weight = 1;
   int32 tray_id = 2;
@@ -43,9 +51,32 @@ message Tray{
   int32 current_weight = 5;
 }
 
-message StationThree{
-
+message packSingleProd {
+  repeated Tray trays = 1;
+  string part_type = 2;
+  int32 piece_count = 3;
 }
+
+message PackSingleProductResponse {
+  Product product = 1;
+}
+
+message packHalfAnimal {
+  repeated Tray trays = 1;
+}
+
+message PackHalfAnimalResponse {
+  Product product = 1;
+}
+
+// ---- Service Definition ----
+service StationThreeService {
+  rpc PackSingleProduct (packSingleProd)
+      returns (PackSingleProductResponse);
+  rpc PackHalfAnimal (packHalfAnimal)
+      returns (PackHalfAnimalResponse);
+}
+
 
 message Product{
   int32 product_id = 1;

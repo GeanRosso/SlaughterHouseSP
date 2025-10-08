@@ -1,4 +1,4 @@
-package Entities;
+package org.example.slaughterhousesp.Entities;
 
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -11,9 +11,9 @@ public class Product
   @Id
   private int productid;
   private String productType;
+  private int totalWeight;
   @ElementCollection
   private List<Integer> trayReference;
-  private int totalWeight;
 
   public Product(String productType)
   {

@@ -1,4 +1,4 @@
-package Entities;
+package org.example.slaughterhousesp.Entities;
 
 
 public class Head extends Part

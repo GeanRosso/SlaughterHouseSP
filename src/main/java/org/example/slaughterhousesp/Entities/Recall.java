@@ -1,4 +1,4 @@
-package Entities;
+package org.example.slaughterhousesp.Entities;
 //to be continued
 public class Recall
 {

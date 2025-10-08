@@ -1,4 +1,4 @@
-package Entities;
+package org.example.slaughterhousesp.Entities;
 
 import jakarta.persistence.Column;
 

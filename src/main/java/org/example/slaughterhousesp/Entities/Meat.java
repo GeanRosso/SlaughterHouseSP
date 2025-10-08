@@ -1,6 +1,4 @@
-package Entities;
-
-import java.util.Objects;
+package org.example.slaughterhousesp.Entities;
 
 public class Meat extends Part
 {

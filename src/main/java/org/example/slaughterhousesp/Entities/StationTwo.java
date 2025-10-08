@@ -1,4 +1,4 @@
-package Entities;
+package org.example.slaughterhousesp.Entities;
 
 import org.springframework.stereotype.Service;
 
@@ -43,7 +43,7 @@ public class StationTwo
   this.meatRepository = meatRepository;
   }
 
-  public List<Object> cut(Animal animal)
+  public List<Part> cut(Animal animal)
   {
     int total = (int) animal.getWeight();
     int headW = (int) Math.round(total * headWeight);
@@ -61,20 +61,20 @@ public class StationTwo
     return List.of(head,guts,leg,meat);
   }
 
-  public List<Tray> packIntoTrays(List<Animal> parts)
+  public List<Tray> packIntoTrays(List<Part> parts)
   {
-    Map<String, List<Object>> byType = new HashMap<>();
-    for (Object p : parts)
+    Map<String, List<Part>> byType = new HashMap<>();
+    for (Part p : parts)
     {
       byType.computeIfAbsent(partType(p), k -> new ArrayList<>()).add(p);
     }
     List<Tray> trays = new ArrayList<>();
-    for (Map.Entry<String, List<Object>> entry : byType.entrySet())
+    for (Map.Entry<String, List<Part>> entry : byType.entrySet())
     {
       String type = entry.getKey();
-      List<Object> group = entry.getValue();
+      List<Part> group = entry.getValue();
       Tray tray = new Tray(trayCounter++, trayMaxWeight, type);
-      for(Object p : group)
+      for(Part p : group)
       {
         int w = partWeight(p);
         if (tray.getCurrentWeight() + w > tray.getMaxWeight()){
@@ -87,14 +87,14 @@ public class StationTwo
     }
     return trays;
   }
-  private String partType(Object p) {
+  private String partType(Part p) {
     if (p instanceof Head) return "HEAD";
     if (p instanceof Leg)  return "LEG";
     if (p instanceof Guts) return "GUTS";
     if (p instanceof Meat) return "MEAT";
     throw new IllegalArgumentException("Unknown part class: " + p.getClass());
   }
-  private int partWeight(Object p) {
+  private int partWeight(Part p) {
     if (p instanceof Head h) return (int) h.getWeight();
     if (p instanceof Leg l)  return (int) l.getWeight();
     if (p instanceof Guts g) return (int) g.getWeight();

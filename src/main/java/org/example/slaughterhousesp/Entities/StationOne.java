@@ -1,4 +1,4 @@
-package Entities;
+package org.example.slaughterhousesp.Entities;
 
 import org.springframework.stereotype.Service;
 

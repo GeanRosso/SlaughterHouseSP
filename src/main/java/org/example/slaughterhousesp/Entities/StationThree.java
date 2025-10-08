@@ -1,4 +1,4 @@
-package Entities;
+package org.example.slaughterhousesp.Entities;
 
 import org.springframework.stereotype.Service;
 
@@ -46,7 +46,7 @@ public class StationThree
     }
 
     for (Integer trayId : usedTrayIds) {
-      product.addTrayReference(trayId, 0); // if you track per-tray used weight, pass it here
+      product.addTrayReference(trayId, 0);
     }
     product.setTotalWeight(totalWeight);
     return productRepo.save(product);
