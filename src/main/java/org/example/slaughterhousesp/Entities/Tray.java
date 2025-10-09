@@ -20,10 +20,27 @@ public class Tray
   // this will not be in the database, it is just for us to easily access the parts in a tray
   // FK for Part column
   private List<Part> parts = new ArrayList<>();
+
+    public Animal getAnimal()
+    {
+        return animal;
+    }
+
+    public void setAnimal(Animal animal)
+    {
+        this.animal = animal;
+    }
+
     // Foreign key column of Animal
     @ManyToOne // this mean many parts can be from one animal
     @JoinColumn (name = "animal_id", nullable=false)
     private Animal animal; // the id of animal_id is possible to be repeated in this table
+
+    public Part getPart()
+    {
+        return part;
+    }
+
     // Foreign key column of Tray
     @ManyToOne // this mean many parts can be in one tray
     @JoinColumn(name = "part_id", nullable = true)

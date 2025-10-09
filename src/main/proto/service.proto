@@ -78,9 +78,3 @@ service StationThreeService {
 }
 
 
-message Product{
-  int32 product_id = 1;
-  string product_type = 2;
-  repeated Tray tray_reference = 3;
-  int32 total_weight = 4;
-}

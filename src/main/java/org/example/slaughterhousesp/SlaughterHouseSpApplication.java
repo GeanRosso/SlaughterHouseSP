@@ -1,6 +1,10 @@
 package org.example.slaughterhousesp;
 
 import org.example.slaughterhousesp.Entities.*;
+import org.example.slaughterhousesp.Repositories.*;
+import org.example.slaughterhousesp.Stations.StationOne;
+import org.example.slaughterhousesp.Stations.StationThree;
+import org.example.slaughterhousesp.Stations.StationTwo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,30 +21,38 @@ import java.util.List;
   }
     @Bean
     CommandLineRunner testSimulation(StationOne stationOne,
-                                    StationTwo stationTwo,
-                                    AnimalRepository animalRepository,
-                                    MeatRepository meatRepository,
+                                     StationTwo stationTwo,
+                                     StationThree stationThree,
+                                     AnimalRepository animalRepository,
+                                     MeatRepository meatRepository,
                                      HeadRepository headRepository,
                                      LegRepository legRepository,
                                      GutsRepository gutsRepository,
-                                     TrayRepository trayRepository)
+                                     TrayRepository trayRepository,
+                                     AnimalTypeRepository animalTypeRepository,
+                                     ProductRepository productRepository
+    )
     {
 
     return args -> {
       System.out.println("=== Slaughterhouse simulation starting ===");
 
+//      AnimalType cowType = animalTypeRepository.findById(1).orElseThrow();
+//      Animal animal = new Animal(cowType, 1000);
+//         stationOne.registerAnimal(animal);
+//      System.out.println("Animal registered: " + animal);
 
-     // Animal animal = new Animal("Cow", 1000);
-        // stationOne.registerAnimal(animal);
-      //System.out.println("Animal registered: " + animal);
+//        Animal givenAnimeFromDb = animalRepository.findById(1).orElseThrow(()-> new RuntimeException("Animal not found"));
+//
+//        List<Part> parts = stationTwo.cut(givenAnimeFromDb);
+//        System.out.println("Animal cut into parts:");
+//        parts.forEach(System.out::println);
 
-        Animal givenAnimeFromDb = animalRepository.findById(1).orElseThrow(()-> new RuntimeException("Animal not found"));
+        Tray givenTrayFromDb = trayRepository.findById(3).orElseThrow(()-> new RuntimeException("Tray not found"));
+        Product product = stationThree.packSingleProduct(givenTrayFromDb);
+        System.out.println("Product packed: " + product);
 
-        List<Part> parts = stationTwo.cut(givenAnimeFromDb);
-        System.out.println("Animal cut into parts:");
-        parts.forEach(System.out::println);
-
-      System.out.println("=== Simulation stage 2 finished successfully ===");
+      System.out.println("=== Simulation stage 3 finished successfully ===");
     };
   }
 }

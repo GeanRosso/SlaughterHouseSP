@@ -1,5 +1,7 @@
-package org.example.slaughterhousesp.Entities;
+package org.example.slaughterhousesp.Stations;
 
+import org.example.slaughterhousesp.Entities.*;
+import org.example.slaughterhousesp.Repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,11 +27,13 @@ public class StationTwo
   private LegRepository legRepository;
   private MeatRepository meatRepository;
   private TrayRepository trayRepository;
+  private PartTypeRepository partTypeRepository;
 
     @Autowired
   public StationTwo(HeadRepository headRepository, GutsRepository gutsRepository
             , LegRepository legRepository, MeatRepository meatRepository
-    , TrayRepository trayRepository, PartsRepository partsRepository)
+    , TrayRepository trayRepository, PartsRepository partsRepository,
+                    PartTypeRepository partTypeRepository)
   {
   this.headRepository = headRepository;
   this.gutsRepository = gutsRepository;
@@ -37,6 +41,7 @@ public class StationTwo
   this.meatRepository = meatRepository;
   this.trayRepository = trayRepository;
       this.partsRepository = partsRepository;
+      this.partTypeRepository = partTypeRepository;
   }
 
 
@@ -61,10 +66,14 @@ public class StationTwo
     double gutsW = total * gutsWeightPercent;
     double legW = total * legWeightPercent;
     double meatW = total - (headW + gutsW + legW);
-    Head head = new Head(animal,headW, trays.get(0));
-    Guts guts = new Guts(animal,gutsW, trays.get(1));
-    Leg leg = new Leg(animal,legW, trays.get(2));
-    Meat meat = new Meat(animal,meatW, trays.get(3));
+    PartType headPart = partTypeRepository.findById(1).orElseThrow();
+    PartType gutsPart = partTypeRepository.findById(2).orElseThrow();
+    PartType legPart = partTypeRepository.findById(3).orElseThrow();
+    PartType meatPart = partTypeRepository.findById(4).orElseThrow();
+    Head head = new Head(animal,headW, trays.get(0),headPart);
+    Guts guts = new Guts(animal,gutsW, trays.get(1),gutsPart);
+    Leg leg = new Leg(animal,legW, trays.get(2),legPart);
+    Meat meat = new Meat(animal,meatW, trays.get(3),meatPart);
 
     head = partsRepository.save(head);
     guts = partsRepository.save(guts);

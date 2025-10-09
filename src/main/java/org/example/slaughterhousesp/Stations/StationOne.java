@@ -1,5 +1,7 @@
-package org.example.slaughterhousesp.Entities;
+package org.example.slaughterhousesp.Stations;
 
+import org.example.slaughterhousesp.Repositories.AnimalRepository;
+import org.example.slaughterhousesp.Entities.Animal;
 import org.springframework.stereotype.Service;
 
 @Service

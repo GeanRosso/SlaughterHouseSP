@@ -1,5 +1,6 @@
-package org.example.slaughterhousesp.Entities;
+package org.example.slaughterhousesp.Repositories;
 
+import org.example.slaughterhousesp.Entities.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductRepository extends JpaRepository<Product,Integer>

@@ -1,5 +1,7 @@
-package org.example.slaughterhousesp.Entities;
+package org.example.slaughterhousesp.Repositories;
 
+import org.example.slaughterhousesp.Entities.Animal;
+import org.example.slaughterhousesp.Entities.AnimalType;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -7,7 +9,7 @@ import java.util.List;
 public interface AnimalRepository extends JpaRepository<Animal, Integer>
 {
   // Find an animal by its type (optional)
-  List<Animal> findByType(String type);
+  List<Animal> findByType(AnimalType type);
 
   // Find all animals heavier than a certain weight (optional)
   List<Animal> findByWeightGreaterThan(double weight);

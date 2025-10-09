@@ -7,9 +7,9 @@ import jakarta.persistence.Table;
 public class Head extends Part
 {
 
-  public Head(Animal animal, double weight, Tray tray)
+  public Head(Animal animal, double weight, Tray tray, PartType partType)
   {
-    super(animal, weight, "Head", tray);
+    super(animal, weight, tray, partType);
   }
 
 

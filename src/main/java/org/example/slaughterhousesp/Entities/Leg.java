@@ -6,9 +6,9 @@ import jakarta.persistence.Table;
 @Entity
 public class Leg extends Part
 {
-  public Leg(Animal animal, double weight, Tray tray)
+  public Leg(Animal animal, double weight, Tray tray, PartType partType)
   {
-    super(animal, weight, "Leg", tray);
+    super(animal, weight, tray, partType);
   }
 
     public Leg()

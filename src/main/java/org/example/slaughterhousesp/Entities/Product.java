@@ -1,59 +1,87 @@
 package org.example.slaughterhousesp.Entities;
 
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.List;
+
+//given that tray know animal and part via FK, use tray to pack the product
+// therefore, we need key of those two as FK and total weight
 @Entity
 public class Product
 {
-  @Id
-  private int productid;
-  private String productType;
-  private int totalWeight;
-  @ElementCollection
-  private List<Integer> trayReference;
+    //PK
+  @Id @GeneratedValue (strategy = GenerationType.IDENTITY)
+  private int id;
+  // FK attribute, either single part of half animal (two individual parts), use id, with its table
+    // will be
+  @ManyToOne
+  @JoinColumn(name = "tray_id_1", nullable = false)
+  private Tray tray;
 
-  public Product(String productType)
-  {
-    this.productType = productType;
-  }
+    @ManyToOne
+  @JoinColumn(name = "tray_id_2", nullable = true)
+  private Tray tray2; // for double part product, can be null for single part product
 
-  public Product() {}
+    @Column (name = "total_weight", nullable = false)
+    private double totalWeight;
 
-  public void addTrayReference(int trayId, int trayWeight)
-  {
-    trayReference.add(trayId);
-    totalWeight += trayWeight;
-  }
+    //constructor with tray parameters (assign FK, PK assign by database automatically)
+    // for single part product
+    public Product(Tray tray)
+    {
+        setTray(tray);
+        setTotalWeight(0);
+    }
 
-  public int getProductid()
-  {
-    return productid;
-  }
+    public Product(Tray tray, Tray tray2)
+    {
+        setTray(tray);
+        setTray2(tray2);
+        setTotalWeight(0);
+    }
 
-  public String getProductType()
-  {
-    return productType;
-  }
+    public Product()
+    {
+    }
 
-  public int getTotalWeight()
-  {
-    return totalWeight;
-  }
+    public int getId()
+    {
+        return id;
+    }
 
-  public List<Integer> getTrayReference(){
-    return trayReference;
-  }
 
-  public void setProductid(int productid)
-  {
-    this.productid = productid;
-  }
+    public Tray getTray()
+    {
+        return tray;
+    }
 
-  public void setTotalWeight(int totalWeight)
-  {
-    this.totalWeight = totalWeight;
-  }
+    public double getTotalWeight()
+    {
+        return totalWeight;
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+
+    public void setTray(Tray tray)
+    {
+        this.tray = tray;
+    }
+
+    public void setTotalWeight(double totalWeight)
+    {
+        this.totalWeight = totalWeight;
+    }
+
+    public Tray getTray2()
+    {
+        return tray2;
+    }
+
+    public void setTray2(Tray tray2)
+    {
+        this.tray2 = tray2;
+    }
 }

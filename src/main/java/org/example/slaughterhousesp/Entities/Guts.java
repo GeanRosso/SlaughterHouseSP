@@ -6,9 +6,9 @@ import jakarta.persistence.Table;
 @Entity
 public class Guts extends Part
 {
-   public Guts(Animal animal, double weight, Tray tray)
+   public Guts(Animal animal, double weight, Tray tray, PartType partType)
    {
-     super(animal, weight,"Guts",tray);
+     super(animal, weight,tray, partType);
    }
 
     public Guts()

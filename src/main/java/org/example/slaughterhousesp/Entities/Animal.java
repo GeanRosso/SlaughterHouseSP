@@ -6,17 +6,18 @@ import java.util.Objects;
 @Entity
 public class Animal
 {
-  @Id
+    @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int animalId;
-  @Column (name = "type", nullable = false)
-  private String type;
+  private int id;
   @Column (name = "weight", nullable = false)
   private double weight;
 
+    @ManyToOne @JoinColumn(name = "animal_type_id", nullable = false)
+  private AnimalType type;
 
-    public Animal(String type, double weight) {
-        this.type = type;
+
+    public Animal(AnimalType animalType, double weight) {
+        this.type = animalType;
         this.weight = weight;
     }
 
@@ -26,15 +27,12 @@ public class Animal
 
   }
 
-  public int getAnimalId()
-  {
-    return animalId;
-  }
 
-  public void setAnimalId(int animalId)
-  {
-    this.animalId = animalId;
-  }
+    public void setType(AnimalType type)
+    {
+        this.type = type;
+    }
+
 
   public double getWeight()
   {
@@ -46,22 +44,16 @@ public class Animal
     this.weight = weight;
   }
 
-  public String getType()
-  {
-    return type;
-  }
+    public int getId()
+    {
+        return id;
+    }
 
-  public void setType(String type)
-  {
-    this.type = type;
-  }
+    public void setId(int id)
+    {
+        this.id = id;
+    }
 
-  @Override public boolean equals(Object o)
-  {
-    if (o == null || getClass() != o.getClass())
-      return false;
-    Animal animal = (Animal) o;
-    return animalId == animal.animalId && weight == animal.weight
-        && Objects.equals(type, animal.type);
-  }
+
+
 }

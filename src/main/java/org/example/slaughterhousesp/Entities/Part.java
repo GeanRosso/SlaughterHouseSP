@@ -3,8 +3,6 @@ package org.example.slaughterhousesp.Entities;
 import jakarta.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "type")
 
 public class Part
 {
@@ -17,20 +15,21 @@ public class Part
   private Animal animal;
   @Column (name = "weight", nullable=false)
   private double weight;
-  @Column (name = "part_type", nullable = false)
-  private String partType;
   // Foreign key column of Tray
   @ManyToOne // this mean many parts can be in one tray
   @JoinColumn(name = "tray_id", nullable = false)
   // the id of tray_id is possible to be repeated in this table
   private Tray tray;
+  @ManyToOne //FK to PartType
+  @JoinColumn(name = "part_type_id", nullable = false)
+  private PartType partType;
 
-  public Part(Animal animal, double weight, String partType, Tray tray)
+  public Part(Animal animal, double weight, Tray tray, PartType partType)
   {
     this.animal = animal;
     this.weight = weight;
-    this.partType = partType;
     this.tray = tray;
+    setPartType(partType);
   }
 
   public Part()
@@ -63,19 +62,21 @@ public class Part
     return this.weight;
   }
 
-    public void setPartType(String partType)
-    {
-        this.partType = partType;
-    }
 
     public void setWeight(double weight)
     {
         this.weight = weight;
     }
 
-    public String getPartType()
-  {
-    return this.partType;
-  }
+    public PartType getPartType()
+    {
+        return partType;
+    }
+
+    public void setPartType(PartType partType)
+    {
+        this.partType = partType;
+    }
+
 
 }
