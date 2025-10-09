@@ -21,25 +21,13 @@ public class Tray
   // FK for Part column
   private List<Part> parts = new ArrayList<>();
 
-    public Animal getAnimal()
-    {
-        return animal;
-    }
 
-    public void setAnimal(Animal animal)
-    {
-        this.animal = animal;
-    }
 
     // Foreign key column of Animal
     @ManyToOne // this mean many parts can be from one animal
     @JoinColumn (name = "animal_id", nullable=false)
     private Animal animal; // the id of animal_id is possible to be repeated in this table
 
-    public Part getPart()
-    {
-        return part;
-    }
 
     // Foreign key column of Tray
     @ManyToOne // this mean many parts can be in one tray
@@ -54,6 +42,21 @@ public class Tray
         this.maxWeight = maxWeight;
         this.animal = animal;
         this.part = part;
+    }
+
+    public Animal getAnimal()
+    {
+        return animal;
+    }
+
+    public void setAnimal(Animal animal)
+    {
+        this.animal = animal;
+    }
+
+    public Part getPart()
+    {
+        return part;
     }
 
 

@@ -37,22 +37,22 @@ import java.util.List;
     return args -> {
       System.out.println("=== Slaughterhouse simulation starting ===");
 
-//      AnimalType cowType = animalTypeRepository.findById(1).orElseThrow();
-//      Animal animal = new Animal(cowType, 1000);
-//         stationOne.registerAnimal(animal);
-//      System.out.println("Animal registered: " + animal);
+      AnimalType cowType = animalTypeRepository.findById(1).orElseThrow();
+      Animal animal = new Animal(cowType, 1000);
+         stationOne.registerAnimal(animal);
+      System.out.println("Animal registered: " + animal);
 
-//        Animal givenAnimeFromDb = animalRepository.findById(1).orElseThrow(()-> new RuntimeException("Animal not found"));
-//
-//        List<Part> parts = stationTwo.cut(givenAnimeFromDb);
-//        System.out.println("Animal cut into parts:");
-//        parts.forEach(System.out::println);
+        Animal givenAnimeFromDb = animalRepository.findById(1).orElseThrow(()-> new RuntimeException("Animal not found"));
+
+        List<Part> parts = stationTwo.cut(givenAnimeFromDb);
+        System.out.println("Animal cut into parts:");
+        parts.forEach(System.out::println);
 
         Tray givenTrayFromDb = trayRepository.findById(3).orElseThrow(()-> new RuntimeException("Tray not found"));
         Product product = stationThree.packSingleProduct(givenTrayFromDb);
         System.out.println("Product packed: " + product);
 
-      System.out.println("=== Simulation stage 3 finished successfully ===");
+      System.out.println("=== Simulation of REST finished successfully ===");
     };
   }
 }

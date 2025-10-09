@@ -1,79 +1,124 @@
 syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.example.slaughterhouseService";
+option java_outer_classname = "ServiceProto";
+package com.example.slaughterhouseService;
 
 message Animal
 {
-  int32 animal_id = 1;
-  string type = 2;
-  int32 weight = 3;
+  int32 id = 1;
+  double weight = 2;
+  string type = 3;
+}
+
+message AnimalType
+{
+  int32 id = 1;
+  string name = 2;
 }
 
 message Part
 {
-  int32 animal_id = 1;
-  double weight = 2;
-  string part_type = 3; // e.g. "Head", "Leg", "Guts", "Meat"
+  int32 id = 1;
+  int32 animal_id = 2;
+  double weight = 3;
+  int32 tray_id = 4;
+  int32 part_type_id = 5;
 }
 
-message Recall{
-  string sup_packing = 1;
-  int32 weight = 2;
-  int32 animal_id = 3;
-  string animal_type = 4;
-}
-
-message StationOne{
-  int32 animal_id = 1;
-  int32 weight = 2;
-  string animal_type = 3;
-}
-
-message StationTwo{
-  double head_prt = 1;
-  double guts_prtm = 2;
-  double leg_prt = 3;
-  int32 tray_max_weight = 4;
-  int32 tray_counter = 5;
+message PartType
+{
+  int32 id = 1;
+  string name = 2;
 }
 
 message Product {
-  int64 id = 1;
-  string product_type = 2;
-  int32 total_weight = 3;
-  repeated int32 tray_references = 4;
+  int32 id = 1;
+  int32 tray_id_1 = 2;
+  int32 tray_id_2 = 3;
+  double total_weight = 4;
 }
 
 
-message Tray{
+message Tray
+{
   int32 max_weight = 1;
-  int32 tray_id = 2;
-  string part_type = 3;
-  repeated Part parts = 4;
-  int32 current_weight = 5;
+  int32 id = 2;
+  repeated Part parts = 3;
+  Animal animal = 4;
+  Part part = 5;
+  int32 current_weight = 6;
 }
 
-message packSingleProd {
-  repeated Tray trays = 1;
-  string part_type = 2;
-  int32 piece_count = 3;
+// ---- Request(parameter) and Response(return) Messages for station 1 ----
+message registerAnimalRequest
+{
+  // considering animal_type_id and weight as parameters to register an animal
+  // instead of sending whole Animal object (better client perspective)
+  int32 animal_type_id = 1;
+  double weight = 2;
 }
 
-message PackSingleProductResponse {
+message registerAnimalResponse
+{
+  Animal animal = 1;
+}
+
+// ---- Request(parameter) and Response(return) Messages for station 2 ----
+message cutRequest
+{
+  // client would not input whole animal object, just the id is enough
+  int32 animal_id = 1;
+}
+
+message CutResponse
+{
+  repeated Part parts = 1;
+}
+
+
+// ---- Request(parameter) and Response(return) Messages for station 3 ----
+message packSingleProductRequest
+{
+  int32 tray_id = 1;
+}
+
+message PackSingleProductResponse
+{
   Product product = 1;
 }
 
-message packHalfAnimal {
-  repeated Tray trays = 1;
+message packHalfAnimalRequest
+{
+  int32 tray_id_1 = 1;
+  int32 tray_id_2 = 2;
 }
 
-message PackHalfAnimalResponse {
+message PackHalfAnimalResponse
+{
   Product product = 1;
 }
 
 // ---- Service Definition ----
-service StationThreeService {
-  rpc PackSingleProduct (packSingleProd)
+
+service StationOneService
+{
+  rpc RegisterAnimal (registerAnimalRequest)
+      returns (registerAnimalResponse);
+}
+
+service StationTwoService
+{
+  rpc Cut (cutRequest)
+      returns (CutResponse);
+}
+
+
+service StationThreeService
+{
+  rpc PackSingleProduct (packSingleProductRequest)
       returns (PackSingleProductResponse);
-  rpc PackHalfAnimal (packHalfAnimal)
+  rpc PackHalfAnimal (packHalfAnimalRequest)
       returns (PackHalfAnimalResponse);
 }
 

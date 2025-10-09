@@ -16,7 +16,7 @@ public class StationOne
 
   public void registerAnimal(Animal animal)
   {
-    animalRepo.save(animal);
+     animalRepo.save(animal);
   }
 
 }

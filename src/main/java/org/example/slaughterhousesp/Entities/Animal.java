@@ -33,6 +33,10 @@ public class Animal
         this.type = type;
     }
 
+    public AnimalType getAnimalType()
+    {
+        return type;
+    }
 
   public double getWeight()
   {
