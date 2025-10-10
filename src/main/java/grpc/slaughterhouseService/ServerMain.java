@@ -19,8 +19,14 @@ import java.io.IOException;
 @EnableJpaRepositories("org.example.slaughterhousesp.Repositories")
 public class ServerMain implements CommandLineRunner
 {
-    @Autowired
     private StationOneImpl stationOne;
+
+    @Autowired
+    public ServerMain(StationOneImpl stationOne)
+    {
+        this.stationOne = stationOne;
+    }
+
 
     public static void main(String[] args)
     {
