@@ -16,7 +16,7 @@ public class ClientMain
                 .build();
         StationOneServiceGrpc.StationOneServiceBlockingStub stub = StationOneServiceGrpc.newBlockingStub(channel);
         registerAnimalRequest registerAnimalRequest = grpc.slaughterhouseService.generate.
-                registerAnimalRequest.newBuilder().setAnimalTypeId(1).setWeight(200).build();
+                registerAnimalRequest.newBuilder().setAnimalTypeId(1).setWeight(696).build();
         StationOneServiceGrpc.StationOneServiceBlockingStub blockingStub = StationOneServiceGrpc.newBlockingStub(channel);
         registerAnimalResponse response = blockingStub.registerAnimal(registerAnimalRequest);
         System.out.println("Received response: " + response.getAnimal());

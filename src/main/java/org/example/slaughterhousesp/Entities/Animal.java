@@ -16,6 +16,10 @@ public class Animal
   private AnimalType type;
 
 
+    @Column (name = "is_alive", nullable = false)
+    private boolean isAlive = true;
+
+
     public Animal(AnimalType animalType, double weight) {
         this.type = animalType;
         this.weight = weight;
@@ -58,6 +62,14 @@ public class Animal
         this.id = id;
     }
 
+    public boolean isAlive()
+    {
+        return isAlive;
+    }
 
+    public void setAlive(boolean alive)
+    {
+        isAlive = alive;
+    }
 
 }

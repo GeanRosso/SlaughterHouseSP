@@ -28,12 +28,13 @@ public class StationTwo
   private MeatRepository meatRepository;
   private TrayRepository trayRepository;
   private PartTypeRepository partTypeRepository;
+  private AnimalRepository animalRepository;
 
     @Autowired
   public StationTwo(HeadRepository headRepository, GutsRepository gutsRepository
             , LegRepository legRepository, MeatRepository meatRepository
     , TrayRepository trayRepository, PartsRepository partsRepository,
-                    PartTypeRepository partTypeRepository)
+                    PartTypeRepository partTypeRepository, AnimalRepository animalRepository)
   {
   this.headRepository = headRepository;
   this.gutsRepository = gutsRepository;
@@ -42,6 +43,7 @@ public class StationTwo
   this.trayRepository = trayRepository;
       this.partsRepository = partsRepository;
       this.partTypeRepository = partTypeRepository;
+      this.animalRepository = animalRepository;
   }
 
 
@@ -86,23 +88,12 @@ public class StationTwo
       trays.get(2).setPart(leg);
       trays.get(3).setPart(meat);
       trayRepository.saveAll(trays); // this is not insert, but update since trays already have ids
+      animal.setAlive(false);
+      animalRepository.save(animal);
 
     return List.of(head,guts,leg,meat);
   }
 
 
-  private String partType(Part p) {
-    if (p instanceof Head) return "HEAD";
-    if (p instanceof Leg)  return "LEG";
-    if (p instanceof Guts) return "GUTS";
-    if (p instanceof Meat) return "MEAT";
-    throw new IllegalArgumentException("Unknown part class: " + p.getClass());
-  }
-  private int partWeight(Part p) {
-    if (p instanceof Head h) return (int) h.getWeight();
-    if (p instanceof Leg l)  return (int) l.getWeight();
-    if (p instanceof Guts g) return (int) g.getWeight();
-    if (p instanceof Meat m) return (int) m.getWeight();
-    throw new IllegalArgumentException("Unknown part class: " + p.getClass());
-}
+
 }
