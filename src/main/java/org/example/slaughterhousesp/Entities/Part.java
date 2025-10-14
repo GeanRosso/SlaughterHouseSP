@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 
 public class Part
 {
-  @Id @GeneratedValue (strategy=GenerationType.IDENTITY)
+    @Id @GeneratedValue (strategy=GenerationType.IDENTITY)
   private int id;
   // Foreign key column of Animal
   @ManyToOne // this mean many parts can be from one animal
@@ -17,7 +17,7 @@ public class Part
   private double weight;
   // Foreign key column of Tray
   @ManyToOne // this mean many parts can be in one tray
-  @JoinColumn(name = "tray_id", nullable = false)
+  @JoinColumn(name = "tray_id", nullable = true)
   // the id of tray_id is possible to be repeated in this table
   private Tray tray;
   @ManyToOne //FK to PartType
@@ -36,6 +36,11 @@ public class Part
   {
 
   }
+
+    public int getId()
+    {
+        return id;
+    }
 
     public Tray getTray()
     {

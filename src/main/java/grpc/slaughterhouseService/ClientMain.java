@@ -1,8 +1,6 @@
 package grpc.slaughterhouseService;
 
-import grpc.slaughterhouseService.generate.StationOneServiceGrpc;
-import grpc.slaughterhouseService.generate.registerAnimalRequest;
-import grpc.slaughterhouseService.generate.registerAnimalResponse;
+import slaughterhouseService.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
@@ -14,12 +12,21 @@ public class ClientMain
         ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 12345)
                 .usePlaintext()
                 .build();
-        StationOneServiceGrpc.StationOneServiceBlockingStub stub = StationOneServiceGrpc.newBlockingStub(channel);
-        registerAnimalRequest registerAnimalRequest = grpc.slaughterhouseService.generate.
-                registerAnimalRequest.newBuilder().setAnimalTypeId(1).setWeight(696).build();
-        StationOneServiceGrpc.StationOneServiceBlockingStub blockingStub = StationOneServiceGrpc.newBlockingStub(channel);
-        registerAnimalResponse response = blockingStub.registerAnimal(registerAnimalRequest);
-        System.out.println("Received response: " + response.getAnimal());
 
+
+//        // station one - register animal request
+//        registerAnimalRequest registerAnimalRequest1 =
+//                registerAnimalRequest.newBuilder().setAnimalTypeId(1).setWeight(696).build();
+//        StationOneServiceGrpc.StationOneServiceBlockingStub blockingStub = StationOneServiceGrpc.newBlockingStub(channel);
+//        registerAnimalResponse response = blockingStub.registerAnimal(registerAnimalRequest1);
+//        System.out.println("Received response: " + response.getAnimal());
+
+
+          // statioon two - cut animal request
+          cutRequest cutRequest1 = cutRequest.newBuilder().setAnimalId(1).build();
+            StationTwoServiceGrpc.StationTwoServiceBlockingStub blockingStub2 =
+                    StationTwoServiceGrpc.newBlockingStub(channel);
+            CutResponse cutResponse = blockingStub2.cut(cutRequest1);
+            System.out.println("Received response: " + cutResponse.getPartsList());
     }
 }

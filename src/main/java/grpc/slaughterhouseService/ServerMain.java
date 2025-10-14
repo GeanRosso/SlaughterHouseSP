@@ -20,11 +20,13 @@ import java.io.IOException;
 public class ServerMain implements CommandLineRunner
 {
     private StationOneImpl stationOne;
+    private StationTwoImpl stationTwo;
 
     @Autowired
-    public ServerMain(StationOneImpl stationOne)
+    public ServerMain(StationOneImpl stationOne, StationTwoImpl stationTwo)
     {
         this.stationOne = stationOne;
+        this.stationTwo = stationTwo;
     }
 
 
@@ -40,6 +42,7 @@ public class ServerMain implements CommandLineRunner
         Server server = ServerBuilder
                 .forPort(12345)
                 .addService(stationOne)
+                .addService(stationTwo)
                 .build();
         server.start();
         System.out.println("Server started, listening on " + server.getPort());
