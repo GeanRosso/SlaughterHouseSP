@@ -1,13 +1,14 @@
 package grpc.slaughterhouseService.service;
 
-import com.example.slaughterhouseService.*;
 import io.grpc.stub.StreamObserver;
-import org.example.slaughterhousesp.Entities.*;
 import org.example.slaughterhousesp.Entities.Animal;
 import org.example.slaughterhousesp.Entities.AnimalType;
 import org.example.slaughterhousesp.Repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import slaughterhouseService.StationOneServiceGrpc;
+import slaughterhouseService.registerAnimalRequest;
+import slaughterhouseService.registerAnimalResponse;
 
 @Service
 public class StationOneImpl extends StationOneServiceGrpc.StationOneServiceImplBase
@@ -33,7 +34,7 @@ public class StationOneImpl extends StationOneServiceGrpc.StationOneServiceImplB
 
         // make dto for response
         System.out.println("Registering animal: " + request);
-        com.example.slaughterhouseService.Animal animalDto = com.example.slaughterhouseService.Animal.newBuilder()
+        slaughterhouseService.Animal animalDto = slaughterhouseService.Animal.newBuilder()
                 .setId(saved.getId())
                 .setWeight(saved.getWeight())
                 .setType(saved.getAnimalType().getName())
