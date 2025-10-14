@@ -29,19 +29,19 @@ public class StationThree
   }
 
   //(double) half animal product, two trays, different part type
-//  public Product packHalfAnimalProduct(Tray tray1, Tray tray2)
-//  {
-//    if (Objects.equals(tray1.getAnimal().getType(), tray2.getAnimal().getType()) && !Objects.equals(tray1.getPart().getPartType(), tray2.getPart().getPartType()))
-//    {
-//      Product product = new Product(tray1, tray2);
-//      product.setTotalWeight(tray1.getPart().getWeight() + tray2.getPart().getWeight());
-//      // save the product to the database
-//      productRepo.save(product);
-//      return product;
-//    }
-//    else
-//    {
-//      throw new IllegalArgumentException("Trays must contain parts from the same animal and different part types.");
-//    }
-//  }
+  public Product packHalfAnimalProduct(Tray tray1, Tray tray2)
+  {
+    if (tray1.getPart().getId() != tray2.getPart().getId() && tray1.getAnimal().getId() == tray2.getAnimal().getId())
+    {
+      Product product = new Product(tray1, tray2);
+      product.setTotalWeight(tray1.getPart().getWeight() + tray2.getPart().getWeight());
+      // save the product to the database
+      productRepo.save(product);
+      return product;
+    }
+    else
+    {
+      throw new IllegalArgumentException("Trays must contain parts from the same animal and different part types.");
+    }
+  }
 }

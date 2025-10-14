@@ -22,11 +22,27 @@ public class ClientMain
 //        System.out.println("Received response: " + response.getAnimal());
 
 
-          // statioon two - cut animal request
-          cutRequest cutRequest1 = cutRequest.newBuilder().setAnimalId(1).build();
-            StationTwoServiceGrpc.StationTwoServiceBlockingStub blockingStub2 =
-                    StationTwoServiceGrpc.newBlockingStub(channel);
-            CutResponse cutResponse = blockingStub2.cut(cutRequest1);
-            System.out.println("Received response: " + cutResponse.getPartsList());
+//          // station two - cut animal request
+//          cutRequest cutRequest1 = cutRequest.newBuilder().setAnimalId(1).build();
+//            StationTwoServiceGrpc.StationTwoServiceBlockingStub blockingStub2 =
+//                    StationTwoServiceGrpc.newBlockingStub(channel);
+//            CutResponse cutResponse = blockingStub2.cut(cutRequest1);
+//            System.out.println("Received response: " + cutResponse.getPartsList());
+
+//        // station three.1 - pack single product request
+//        packSingleProductRequest packSingleProductRequest1 =
+//                packSingleProductRequest.newBuilder().setTrayId(1).build();
+//        StationThreeServiceGrpc.StationThreeServiceBlockingStub blockingStub3 =
+//                StationThreeServiceGrpc.newBlockingStub(channel);
+//        PackSingleProductResponse packSingleProductResponse = blockingStub3.packSingleProduct(packSingleProductRequest1);
+//        System.out.println("Received response: " + packSingleProductResponse.getProduct());
+
+        // station three.2 - pack half animal product request
+        packHalfAnimalRequest packHalfAnimalRequest1 =
+                packHalfAnimalRequest.newBuilder().setTrayId1(2).setTrayId2(3).build();
+        StationThreeServiceGrpc.StationThreeServiceBlockingStub blockingStub4 =
+                StationThreeServiceGrpc.newBlockingStub(channel);
+        PackHalfAnimalResponse packHalfAnimalResponse = blockingStub4.packHalfAnimal(packHalfAnimalRequest1);
+        System.out.println("Received response: " + packHalfAnimalResponse.getProduct());
     }
 }

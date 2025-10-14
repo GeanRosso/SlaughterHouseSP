@@ -21,12 +21,14 @@ public class ServerMain implements CommandLineRunner
 {
     private StationOneImpl stationOne;
     private StationTwoImpl stationTwo;
+    private StationThreeImpl stationThree;
 
     @Autowired
-    public ServerMain(StationOneImpl stationOne, StationTwoImpl stationTwo)
+    public ServerMain(StationOneImpl stationOne, StationTwoImpl stationTwo, StationThreeImpl stationThree)
     {
         this.stationOne = stationOne;
         this.stationTwo = stationTwo;
+        this.stationThree = stationThree;
     }
 
 
@@ -43,6 +45,7 @@ public class ServerMain implements CommandLineRunner
                 .forPort(12345)
                 .addService(stationOne)
                 .addService(stationTwo)
+                .addService(stationThree)
                 .build();
         server.start();
         System.out.println("Server started, listening on " + server.getPort());
