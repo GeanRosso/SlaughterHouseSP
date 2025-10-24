@@ -7,7 +7,7 @@ package slaughterhouseService;
 
 @com.google.protobuf.Generated
 public interface AnimalOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:com.example.slaughterhouseService.Animal)
+    // @@protoc_insertion_point(interface_extends:slaughterhouseService.Animal)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -33,4 +33,31 @@ public interface AnimalOrBuilder extends
    */
   com.google.protobuf.ByteString
       getTypeBytes();
+
+  /**
+   * <code>.google.protobuf.Timestamp arrival_time = 4;</code>
+   * @return Whether the arrivalTime field is set.
+   */
+  boolean hasArrivalTime();
+  /**
+   * <code>.google.protobuf.Timestamp arrival_time = 4;</code>
+   * @return The arrivalTime.
+   */
+  com.google.protobuf.Timestamp getArrivalTime();
+  /**
+   * <code>.google.protobuf.Timestamp arrival_time = 4;</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getArrivalTimeOrBuilder();
+
+  /**
+   * <code>string origin = 5;</code>
+   * @return The origin.
+   */
+  java.lang.String getOrigin();
+  /**
+   * <code>string origin = 5;</code>
+   * @return The bytes for origin.
+   */
+  com.google.protobuf.ByteString
+      getOriginBytes();
 }

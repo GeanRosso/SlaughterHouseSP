@@ -6,12 +6,12 @@
 package slaughterhouseService;
 
 /**
- * Protobuf type {@code com.example.slaughterhouseService.PackHalfAnimalResponse}
+ * Protobuf type {@code slaughterhouseService.PackHalfAnimalResponse}
  */
 @com.google.protobuf.Generated
 public final class PackHalfAnimalResponse extends
     com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:com.example.slaughterhouseService.PackHalfAnimalResponse)
+    // @@protoc_insertion_point(message_implements:slaughterhouseService.PackHalfAnimalResponse)
     PackHalfAnimalResponseOrBuilder {
 private static final long serialVersionUID = 0L;
   static {
@@ -47,7 +47,7 @@ private static final long serialVersionUID = 0L;
   public static final int PRODUCT_FIELD_NUMBER = 1;
   private Product product_;
   /**
-   * <code>.com.example.slaughterhouseService.Product product = 1;</code>
+   * <code>.slaughterhouseService.Product product = 1;</code>
    * @return Whether the product field is set.
    */
   @java.lang.Override
@@ -55,7 +55,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>.com.example.slaughterhouseService.Product product = 1;</code>
+   * <code>.slaughterhouseService.Product product = 1;</code>
    * @return The product.
    */
   @java.lang.Override
@@ -63,7 +63,7 @@ private static final long serialVersionUID = 0L;
     return product_ == null ? Product.getDefaultInstance() : product_;
   }
   /**
-   * <code>.com.example.slaughterhouseService.Product product = 1;</code>
+   * <code>.slaughterhouseService.Product product = 1;</code>
    */
   @java.lang.Override
   public ProductOrBuilder getProductOrBuilder() {
@@ -233,11 +233,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code com.example.slaughterhouseService.PackHalfAnimalResponse}
+   * Protobuf type {@code slaughterhouseService.PackHalfAnimalResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.example.slaughterhouseService.PackHalfAnimalResponse)
+      // @@protoc_insertion_point(builder_implements:slaughterhouseService.PackHalfAnimalResponse)
           PackHalfAnimalResponseOrBuilder
   {
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -253,7 +253,7 @@ private static final long serialVersionUID = 0L;
               PackHalfAnimalResponse.class, PackHalfAnimalResponse.Builder.class);
     }
 
-    // Construct using com.example.slaughterhouseService.PackHalfAnimalResponse.newBuilder()
+    // Construct using slaughterhouseService.PackHalfAnimalResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -390,14 +390,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
             Product, Product.Builder, ProductOrBuilder> productBuilder_;
     /**
-     * <code>.com.example.slaughterhouseService.Product product = 1;</code>
+     * <code>.slaughterhouseService.Product product = 1;</code>
      * @return Whether the product field is set.
      */
     public boolean hasProduct() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>.com.example.slaughterhouseService.Product product = 1;</code>
+     * <code>.slaughterhouseService.Product product = 1;</code>
      * @return The product.
      */
     public Product getProduct() {
@@ -408,7 +408,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.example.slaughterhouseService.Product product = 1;</code>
+     * <code>.slaughterhouseService.Product product = 1;</code>
      */
     public Builder setProduct(Product value) {
       if (productBuilder_ == null) {
@@ -424,7 +424,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.example.slaughterhouseService.Product product = 1;</code>
+     * <code>.slaughterhouseService.Product product = 1;</code>
      */
     public Builder setProduct(
         Product.Builder builderForValue) {
@@ -438,7 +438,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.example.slaughterhouseService.Product product = 1;</code>
+     * <code>.slaughterhouseService.Product product = 1;</code>
      */
     public Builder mergeProduct(Product value) {
       if (productBuilder_ == null) {
@@ -459,7 +459,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.example.slaughterhouseService.Product product = 1;</code>
+     * <code>.slaughterhouseService.Product product = 1;</code>
      */
     public Builder clearProduct() {
       bitField0_ = (bitField0_ & ~0x00000001);
@@ -472,7 +472,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.example.slaughterhouseService.Product product = 1;</code>
+     * <code>.slaughterhouseService.Product product = 1;</code>
      */
     public Product.Builder getProductBuilder() {
       bitField0_ |= 0x00000001;
@@ -480,7 +480,7 @@ private static final long serialVersionUID = 0L;
       return internalGetProductFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.example.slaughterhouseService.Product product = 1;</code>
+     * <code>.slaughterhouseService.Product product = 1;</code>
      */
     public ProductOrBuilder getProductOrBuilder() {
       if (productBuilder_ != null) {
@@ -491,7 +491,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.example.slaughterhouseService.Product product = 1;</code>
+     * <code>.slaughterhouseService.Product product = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
             Product, Product.Builder, ProductOrBuilder>
@@ -507,10 +507,10 @@ private static final long serialVersionUID = 0L;
       return productBuilder_;
     }
 
-    // @@protoc_insertion_point(builder_scope:com.example.slaughterhouseService.PackHalfAnimalResponse)
+    // @@protoc_insertion_point(builder_scope:slaughterhouseService.PackHalfAnimalResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:com.example.slaughterhouseService.PackHalfAnimalResponse)
+  // @@protoc_insertion_point(class_scope:slaughterhouseService.PackHalfAnimalResponse)
   private static final PackHalfAnimalResponse DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new PackHalfAnimalResponse();

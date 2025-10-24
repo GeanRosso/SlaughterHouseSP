@@ -7,7 +7,7 @@ package slaughterhouseService;
 
 @com.google.protobuf.Generated
 public interface packSingleProductRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:com.example.slaughterhouseService.packSingleProductRequest)
+    // @@protoc_insertion_point(interface_extends:slaughterhouseService.packSingleProductRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

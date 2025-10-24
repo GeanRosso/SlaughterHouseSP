@@ -6,12 +6,12 @@
 package slaughterhouseService;
 
 /**
- * Protobuf type {@code com.example.slaughterhouseService.PartType}
+ * Protobuf type {@code slaughterhouseService.PartType}
  */
 @com.google.protobuf.Generated
 public final class PartType extends
     com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:com.example.slaughterhouseService.PartType)
+    // @@protoc_insertion_point(message_implements:slaughterhouseService.PartType)
     PartTypeOrBuilder {
 private static final long serialVersionUID = 0L;
   static {
@@ -262,11 +262,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code com.example.slaughterhouseService.PartType}
+   * Protobuf type {@code slaughterhouseService.PartType}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.example.slaughterhouseService.PartType)
+      // @@protoc_insertion_point(builder_implements:slaughterhouseService.PartType)
           PartTypeOrBuilder
   {
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -282,7 +282,7 @@ private static final long serialVersionUID = 0L;
               PartType.class, PartType.Builder.class);
     }
 
-    // Construct using com.example.slaughterhouseService.PartType.newBuilder()
+    // Construct using slaughterhouseService.PartType.newBuilder()
     private Builder() {
 
     }
@@ -516,10 +516,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:com.example.slaughterhouseService.PartType)
+    // @@protoc_insertion_point(builder_scope:slaughterhouseService.PartType)
   }
 
-  // @@protoc_insertion_point(class_scope:com.example.slaughterhouseService.PartType)
+  // @@protoc_insertion_point(class_scope:slaughterhouseService.PartType)
   private static final PartType DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new PartType();

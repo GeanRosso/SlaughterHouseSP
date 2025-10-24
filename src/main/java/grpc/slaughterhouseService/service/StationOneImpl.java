@@ -1,5 +1,6 @@
 package grpc.slaughterhouseService.service;
 
+import com.google.protobuf.Timestamp;
 import io.grpc.stub.StreamObserver;
 import org.example.slaughterhousesp.Entities.Animal;
 import org.example.slaughterhousesp.Entities.AnimalType;
@@ -9,6 +10,9 @@ import org.springframework.stereotype.Service;
 import slaughterhouseService.StationOneServiceGrpc;
 import slaughterhouseService.registerAnimalRequest;
 import slaughterhouseService.registerAnimalResponse;
+
+import java.time.Instant;
+import java.time.LocalDate;
 
 @Service
 public class StationOneImpl extends StationOneServiceGrpc.StationOneServiceImplBase
@@ -29,15 +33,26 @@ public class StationOneImpl extends StationOneServiceGrpc.StationOneServiceImplB
     {
         // make entity for DB
         AnimalType animalTypeEntity = animalTypeRepository.findById(request.getAnimalTypeId()).orElse(null);
-        Animal animalEntity = new Animal(animalTypeEntity, request.getWeight());
+        Animal animalEntity = new Animal(animalTypeEntity, request.getWeight(), request.getOrigin());
         Animal saved = animalRepository.save(animalEntity);
 
         // make dto for response
         System.out.println("Registering animal: " + request);
+
+        // convert LocalDate to Timestamp for arrivalDate
+        LocalDate arrivalDate = saved.getArrivalDate();
+        Instant arrivalInstant = arrivalDate.atStartOfDay().toInstant(java.time.ZoneOffset.UTC);
+        Timestamp arrivalTimestamp = Timestamp.newBuilder()
+                .setSeconds(arrivalInstant.getEpochSecond())
+                .setNanos(arrivalInstant.getNano())
+                .build();
+
         slaughterhouseService.Animal animalDto = slaughterhouseService.Animal.newBuilder()
                 .setId(saved.getId())
                 .setWeight(saved.getWeight())
                 .setType(saved.getAnimalType().getName())
+                .setArrivalTime(arrivalTimestamp)
+                .setOrigin(saved.getOrigin())
                 .build();
 
         registerAnimalResponse response = registerAnimalResponse.newBuilder()

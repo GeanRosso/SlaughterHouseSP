@@ -6,12 +6,12 @@
 package slaughterhouseService;
 
 /**
- * Protobuf type {@code com.example.slaughterhouseService.Part}
+ * Protobuf type {@code slaughterhouseService.Part}
  */
 @com.google.protobuf.Generated
 public final class Part extends
     com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:com.example.slaughterhouseService.Part)
+    // @@protoc_insertion_point(message_implements:slaughterhouseService.Part)
     PartOrBuilder {
 private static final long serialVersionUID = 0L;
   static {
@@ -302,11 +302,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code com.example.slaughterhouseService.Part}
+   * Protobuf type {@code slaughterhouseService.Part}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.example.slaughterhouseService.Part)
+      // @@protoc_insertion_point(builder_implements:slaughterhouseService.Part)
           PartOrBuilder
   {
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -322,7 +322,7 @@ private static final long serialVersionUID = 0L;
               Part.class, Part.Builder.class);
     }
 
-    // Construct using com.example.slaughterhouseService.Part.newBuilder()
+    // Construct using slaughterhouseService.Part.newBuilder()
     private Builder() {
 
     }
@@ -646,10 +646,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:com.example.slaughterhouseService.Part)
+    // @@protoc_insertion_point(builder_scope:slaughterhouseService.Part)
   }
 
-  // @@protoc_insertion_point(class_scope:com.example.slaughterhouseService.Part)
+  // @@protoc_insertion_point(class_scope:slaughterhouseService.Part)
   private static final Part DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new Part();

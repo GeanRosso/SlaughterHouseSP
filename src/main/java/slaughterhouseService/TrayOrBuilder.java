@@ -7,7 +7,7 @@ package slaughterhouseService;
 
 @com.google.protobuf.Generated
 public interface TrayOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:com.example.slaughterhouseService.Tray)
+    // @@protoc_insertion_point(interface_extends:slaughterhouseService.Tray)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -23,56 +23,56 @@ public interface TrayOrBuilder extends
   int getId();
 
   /**
-   * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+   * <code>repeated .slaughterhouseService.Part parts = 3;</code>
    */
   java.util.List<Part>
       getPartsList();
   /**
-   * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+   * <code>repeated .slaughterhouseService.Part parts = 3;</code>
    */
   Part getParts(int index);
   /**
-   * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+   * <code>repeated .slaughterhouseService.Part parts = 3;</code>
    */
   int getPartsCount();
   /**
-   * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+   * <code>repeated .slaughterhouseService.Part parts = 3;</code>
    */
   java.util.List<? extends PartOrBuilder>
       getPartsOrBuilderList();
   /**
-   * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+   * <code>repeated .slaughterhouseService.Part parts = 3;</code>
    */
   PartOrBuilder getPartsOrBuilder(
       int index);
 
   /**
-   * <code>.com.example.slaughterhouseService.Animal animal = 4;</code>
+   * <code>.slaughterhouseService.Animal animal = 4;</code>
    * @return Whether the animal field is set.
    */
   boolean hasAnimal();
   /**
-   * <code>.com.example.slaughterhouseService.Animal animal = 4;</code>
+   * <code>.slaughterhouseService.Animal animal = 4;</code>
    * @return The animal.
    */
   Animal getAnimal();
   /**
-   * <code>.com.example.slaughterhouseService.Animal animal = 4;</code>
+   * <code>.slaughterhouseService.Animal animal = 4;</code>
    */
   AnimalOrBuilder getAnimalOrBuilder();
 
   /**
-   * <code>.com.example.slaughterhouseService.Part part = 5;</code>
+   * <code>.slaughterhouseService.Part part = 5;</code>
    * @return Whether the part field is set.
    */
   boolean hasPart();
   /**
-   * <code>.com.example.slaughterhouseService.Part part = 5;</code>
+   * <code>.slaughterhouseService.Part part = 5;</code>
    * @return The part.
    */
   Part getPart();
   /**
-   * <code>.com.example.slaughterhouseService.Part part = 5;</code>
+   * <code>.slaughterhouseService.Part part = 5;</code>
    */
   PartOrBuilder getPartOrBuilder();
 

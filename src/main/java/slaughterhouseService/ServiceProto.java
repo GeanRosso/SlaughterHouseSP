@@ -106,61 +106,65 @@ public final class ServiceProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\rservice.proto\022!com.example.slaughterho" +
-      "useService\"2\n\006Animal\022\n\n\002id\030\001 \001(\005\022\016\n\006weig" +
-      "ht\030\002 \001(\001\022\014\n\004type\030\003 \001(\t\"&\n\nAnimalType\022\n\n\002" +
-      "id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\"\\\n\004Part\022\n\n\002id\030\001 \001" +
-      "(\005\022\021\n\tanimal_id\030\002 \001(\005\022\016\n\006weight\030\003 \001(\001\022\017\n" +
-      "\007tray_id\030\004 \001(\005\022\024\n\014part_type_id\030\005 \001(\005\"$\n\010" +
-      "PartType\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\"Q\n\007Pr" +
-      "oduct\022\n\n\002id\030\001 \001(\005\022\021\n\ttray_id_1\030\002 \001(\005\022\021\n\t" +
-      "tray_id_2\030\003 \001(\005\022\024\n\014total_weight\030\004 \001(\001\"\350\001" +
-      "\n\004Tray\022\022\n\nmax_weight\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\0226" +
-      "\n\005parts\030\003 \003(\0132\'.com.example.slaughterhou" +
-      "seService.Part\0229\n\006animal\030\004 \001(\0132).com.exa" +
-      "mple.slaughterhouseService.Animal\0225\n\004par" +
-      "t\030\005 \001(\0132\'.com.example.slaughterhouseServ" +
-      "ice.Part\022\026\n\016current_weight\030\006 \001(\005\"?\n\025regi" +
-      "sterAnimalRequest\022\026\n\016animal_type_id\030\001 \001(" +
-      "\005\022\016\n\006weight\030\002 \001(\001\"S\n\026registerAnimalRespo" +
-      "nse\0229\n\006animal\030\001 \001(\0132).com.example.slaugh" +
-      "terhouseService.Animal\"\037\n\ncutRequest\022\021\n\t" +
-      "animal_id\030\001 \001(\005\"E\n\013CutResponse\0226\n\005parts\030" +
-      "\001 \003(\0132\'.com.example.slaughterhouseServic" +
-      "e.Part\"+\n\030packSingleProductRequest\022\017\n\007tr" +
-      "ay_id\030\001 \001(\005\"X\n\031PackSingleProductResponse" +
-      "\022;\n\007product\030\001 \001(\0132*.com.example.slaughte" +
-      "rhouseService.Product\"=\n\025packHalfAnimalR" +
-      "equest\022\021\n\ttray_id_1\030\001 \001(\005\022\021\n\ttray_id_2\030\002" +
-      " \001(\005\"U\n\026PackHalfAnimalResponse\022;\n\007produc" +
-      "t\030\001 \001(\0132*.com.example.slaughterhouseServ" +
-      "ice.Product2\233\001\n\021StationOneService\022\205\001\n\016Re" +
-      "gisterAnimal\0228.com.example.slaughterhous" +
-      "eService.registerAnimalRequest\0329.com.exa" +
-      "mple.slaughterhouseService.registerAnima" +
-      "lResponse2y\n\021StationTwoService\022d\n\003Cut\022-." +
-      "com.example.slaughterhouseService.cutReq" +
-      "uest\032..com.example.slaughterhouseService" +
-      ".CutResponse2\256\002\n\023StationThreeService\022\216\001\n" +
-      "\021PackSingleProduct\022;.com.example.slaught" +
-      "erhouseService.packSingleProductRequest\032" +
-      "<.com.example.slaughterhouseService.Pack" +
-      "SingleProductResponse\022\205\001\n\016PackHalfAnimal" +
-      "\0228.com.example.slaughterhouseService.pac" +
-      "kHalfAnimalRequest\0329.com.example.slaught" +
-      "erhouseService.PackHalfAnimalResponseB3\n" +
-      "!com.example.slaughterhouseServiceB\014Serv" +
-      "iceProtoP\001b\006proto3"
+      "useService\032\037google/protobuf/timestamp.pr" +
+      "oto\"t\n\006Animal\022\n\n\002id\030\001 \001(\005\022\016\n\006weight\030\002 \001(" +
+      "\001\022\014\n\004type\030\003 \001(\t\0220\n\014arrival_time\030\004 \001(\0132\032." +
+      "google.protobuf.Timestamp\022\016\n\006origin\030\005 \001(" +
+      "\t\"&\n\nAnimalType\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(" +
+      "\t\"\\\n\004Part\022\n\n\002id\030\001 \001(\005\022\021\n\tanimal_id\030\002 \001(\005" +
+      "\022\016\n\006weight\030\003 \001(\001\022\017\n\007tray_id\030\004 \001(\005\022\024\n\014par" +
+      "t_type_id\030\005 \001(\005\"$\n\010PartType\022\n\n\002id\030\001 \001(\005\022" +
+      "\014\n\004name\030\002 \001(\t\"Q\n\007Product\022\n\n\002id\030\001 \001(\005\022\021\n\t" +
+      "tray_id_1\030\002 \001(\005\022\021\n\ttray_id_2\030\003 \001(\005\022\024\n\014to" +
+      "tal_weight\030\004 \001(\001\"\350\001\n\004Tray\022\022\n\nmax_weight\030" +
+      "\001 \001(\005\022\n\n\002id\030\002 \001(\005\0226\n\005parts\030\003 \003(\0132\'.com.e" +
+      "xample.slaughterhouseService.Part\0229\n\006ani" +
+      "mal\030\004 \001(\0132).com.example.slaughterhouseSe" +
+      "rvice.Animal\0225\n\004part\030\005 \001(\0132\'.com.example" +
+      ".slaughterhouseService.Part\022\026\n\016current_w" +
+      "eight\030\006 \001(\005\"O\n\025registerAnimalRequest\022\026\n\016" +
+      "animal_type_id\030\001 \001(\005\022\016\n\006weight\030\002 \001(\001\022\016\n\006" +
+      "origin\030\003 \001(\t\"S\n\026registerAnimalResponse\0229" +
+      "\n\006animal\030\001 \001(\0132).com.example.slaughterho" +
+      "useService.Animal\"\037\n\ncutRequest\022\021\n\tanima" +
+      "l_id\030\001 \001(\005\"E\n\013CutResponse\0226\n\005parts\030\001 \003(\013" +
+      "2\'.com.example.slaughterhouseService.Par" +
+      "t\"+\n\030packSingleProductRequest\022\017\n\007tray_id" +
+      "\030\001 \001(\005\"X\n\031PackSingleProductResponse\022;\n\007p" +
+      "roduct\030\001 \001(\0132*.com.example.slaughterhous" +
+      "eService.Product\"=\n\025packHalfAnimalReques" +
+      "t\022\021\n\ttray_id_1\030\001 \001(\005\022\021\n\ttray_id_2\030\002 \001(\005\"" +
+      "U\n\026PackHalfAnimalResponse\022;\n\007product\030\001 \001" +
+      "(\0132*.com.example.slaughterhouseService.P" +
+      "roduct2\233\001\n\021StationOneService\022\205\001\n\016Registe" +
+      "rAnimal\0228.com.example.slaughterhouseServ" +
+      "ice.registerAnimalRequest\0329.com.example." +
+      "slaughterhouseService.registerAnimalResp" +
+      "onse2y\n\021StationTwoService\022d\n\003Cut\022-.com.e" +
+      "xample.slaughterhouseService.cutRequest\032" +
+      "..com.example.slaughterhouseService.CutR" +
+      "esponse2\256\002\n\023StationThreeService\022\216\001\n\021Pack" +
+      "SingleProduct\022;.com.example.slaughterhou" +
+      "seService.packSingleProductRequest\032<.com" +
+      ".example.slaughterhouseService.PackSingl" +
+      "eProductResponse\022\205\001\n\016PackHalfAnimal\0228.co" +
+      "m.example.slaughterhouseService.packHalf" +
+      "AnimalRequest\0329.com.example.slaughterhou" +
+      "seService.PackHalfAnimalResponseB3\n!com." +
+      "example.slaughterhouseServiceB\014ServicePr" +
+      "otoP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.google.protobuf.TimestampProto.getDescriptor(),
         });
     internal_static_com_example_slaughterhouseService_Animal_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_com_example_slaughterhouseService_Animal_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_example_slaughterhouseService_Animal_descriptor,
-        new java.lang.String[] { "Id", "Weight", "Type", });
+        new java.lang.String[] { "Id", "Weight", "Type", "ArrivalTime", "Origin", });
     internal_static_com_example_slaughterhouseService_AnimalType_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_example_slaughterhouseService_AnimalType_fieldAccessorTable = new
@@ -196,7 +200,7 @@ public final class ServiceProto {
     internal_static_com_example_slaughterhouseService_registerAnimalRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_example_slaughterhouseService_registerAnimalRequest_descriptor,
-        new java.lang.String[] { "AnimalTypeId", "Weight", });
+        new java.lang.String[] { "AnimalTypeId", "Weight", "Origin", });
     internal_static_com_example_slaughterhouseService_registerAnimalResponse_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_com_example_slaughterhouseService_registerAnimalResponse_fieldAccessorTable = new
@@ -240,6 +244,7 @@ public final class ServiceProto {
         internal_static_com_example_slaughterhouseService_PackHalfAnimalResponse_descriptor,
         new java.lang.String[] { "Product", });
     descriptor.resolveAllFeaturesImmutable();
+    com.google.protobuf.TimestampProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

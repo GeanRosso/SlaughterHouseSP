@@ -5,15 +5,13 @@
 
 package slaughterhouseService;
 
-import com.google.protobuf.MessageLite;
-
 /**
- * Protobuf type {@code com.example.slaughterhouseService.registerAnimalResponse}
+ * Protobuf type {@code slaughterhouseService.registerAnimalResponse}
  */
 @com.google.protobuf.Generated
 public final class registerAnimalResponse extends
     com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:com.example.slaughterhouseService.registerAnimalResponse)
+    // @@protoc_insertion_point(message_implements:slaughterhouseService.registerAnimalResponse)
     registerAnimalResponseOrBuilder {
 private static final long serialVersionUID = 0L;
   static {
@@ -49,7 +47,7 @@ private static final long serialVersionUID = 0L;
   public static final int ANIMAL_FIELD_NUMBER = 1;
   private Animal animal_;
   /**
-   * <code>.com.example.slaughterhouseService.Animal animal = 1;</code>
+   * <code>.slaughterhouseService.Animal animal = 1;</code>
    * @return Whether the animal field is set.
    */
   @java.lang.Override
@@ -57,7 +55,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>.com.example.slaughterhouseService.Animal animal = 1;</code>
+   * <code>.slaughterhouseService.Animal animal = 1;</code>
    * @return The animal.
    */
   @java.lang.Override
@@ -65,7 +63,7 @@ private static final long serialVersionUID = 0L;
     return animal_ == null ? Animal.getDefaultInstance() : animal_;
   }
   /**
-   * <code>.com.example.slaughterhouseService.Animal animal = 1;</code>
+   * <code>.slaughterhouseService.Animal animal = 1;</code>
    */
   @java.lang.Override
   public AnimalOrBuilder getAnimalOrBuilder() {
@@ -235,11 +233,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code com.example.slaughterhouseService.registerAnimalResponse}
+   * Protobuf type {@code slaughterhouseService.registerAnimalResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.example.slaughterhouseService.registerAnimalResponse)
+      // @@protoc_insertion_point(builder_implements:slaughterhouseService.registerAnimalResponse)
           registerAnimalResponseOrBuilder
   {
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -255,7 +253,7 @@ private static final long serialVersionUID = 0L;
               registerAnimalResponse.class, registerAnimalResponse.Builder.class);
     }
 
-    // Construct using com.example.slaughterhouseService.registerAnimalResponse.newBuilder()
+    // Construct using slaughterhouseService.registerAnimalResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -392,14 +390,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
             Animal, Animal.Builder, AnimalOrBuilder> animalBuilder_;
     /**
-     * <code>.com.example.slaughterhouseService.Animal animal = 1;</code>
+     * <code>.slaughterhouseService.Animal animal = 1;</code>
      * @return Whether the animal field is set.
      */
     public boolean hasAnimal() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>.com.example.slaughterhouseService.Animal animal = 1;</code>
+     * <code>.slaughterhouseService.Animal animal = 1;</code>
      * @return The animal.
      */
     public Animal getAnimal() {
@@ -410,7 +408,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.example.slaughterhouseService.Animal animal = 1;</code>
+     * <code>.slaughterhouseService.Animal animal = 1;</code>
      */
     public Builder setAnimal(Animal value) {
       if (animalBuilder_ == null) {
@@ -426,7 +424,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.example.slaughterhouseService.Animal animal = 1;</code>
+     * <code>.slaughterhouseService.Animal animal = 1;</code>
      */
     public Builder setAnimal(
         Animal.Builder builderForValue) {
@@ -440,7 +438,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.example.slaughterhouseService.Animal animal = 1;</code>
+     * <code>.slaughterhouseService.Animal animal = 1;</code>
      */
     public Builder mergeAnimal(Animal value) {
       if (animalBuilder_ == null) {
@@ -461,7 +459,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.example.slaughterhouseService.Animal animal = 1;</code>
+     * <code>.slaughterhouseService.Animal animal = 1;</code>
      */
     public Builder clearAnimal() {
       bitField0_ = (bitField0_ & ~0x00000001);
@@ -474,7 +472,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.example.slaughterhouseService.Animal animal = 1;</code>
+     * <code>.slaughterhouseService.Animal animal = 1;</code>
      */
     public Animal.Builder getAnimalBuilder() {
       bitField0_ |= 0x00000001;
@@ -482,7 +480,7 @@ private static final long serialVersionUID = 0L;
       return internalGetAnimalFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.example.slaughterhouseService.Animal animal = 1;</code>
+     * <code>.slaughterhouseService.Animal animal = 1;</code>
      */
     public AnimalOrBuilder getAnimalOrBuilder() {
       if (animalBuilder_ != null) {
@@ -493,7 +491,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.example.slaughterhouseService.Animal animal = 1;</code>
+     * <code>.slaughterhouseService.Animal animal = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
             Animal, Animal.Builder, AnimalOrBuilder>
@@ -509,15 +507,10 @@ private static final long serialVersionUID = 0L;
       return animalBuilder_;
     }
 
-      public MessageLite.Builder setAnimal(registerAnimalRequest request1)
-      {
-          return null;
-      }
-
-      // @@protoc_insertion_point(builder_scope:com.example.slaughterhouseService.registerAnimalResponse)
+    // @@protoc_insertion_point(builder_scope:slaughterhouseService.registerAnimalResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:com.example.slaughterhouseService.registerAnimalResponse)
+  // @@protoc_insertion_point(class_scope:slaughterhouseService.registerAnimalResponse)
   private static final registerAnimalResponse DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new registerAnimalResponse();

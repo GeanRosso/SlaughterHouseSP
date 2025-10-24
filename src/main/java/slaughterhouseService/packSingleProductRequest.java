@@ -10,12 +10,12 @@ package slaughterhouseService;
  * ---- Request(parameter) and Response(return) Messages for station 3 ----
  * </pre>
  *
- * Protobuf type {@code com.example.slaughterhouseService.packSingleProductRequest}
+ * Protobuf type {@code slaughterhouseService.packSingleProductRequest}
  */
 @com.google.protobuf.Generated
 public final class packSingleProductRequest extends
     com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:com.example.slaughterhouseService.packSingleProductRequest)
+    // @@protoc_insertion_point(message_implements:slaughterhouseService.packSingleProductRequest)
     packSingleProductRequestOrBuilder {
 private static final long serialVersionUID = 0L;
   static {
@@ -220,11 +220,11 @@ private static final long serialVersionUID = 0L;
    * ---- Request(parameter) and Response(return) Messages for station 3 ----
    * </pre>
    *
-   * Protobuf type {@code com.example.slaughterhouseService.packSingleProductRequest}
+   * Protobuf type {@code slaughterhouseService.packSingleProductRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.example.slaughterhouseService.packSingleProductRequest)
+      // @@protoc_insertion_point(builder_implements:slaughterhouseService.packSingleProductRequest)
           packSingleProductRequestOrBuilder
   {
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -240,7 +240,7 @@ private static final long serialVersionUID = 0L;
               packSingleProductRequest.class, packSingleProductRequest.Builder.class);
     }
 
-    // Construct using com.example.slaughterhouseService.packSingleProductRequest.newBuilder()
+    // Construct using slaughterhouseService.packSingleProductRequest.newBuilder()
     private Builder() {
 
     }
@@ -388,10 +388,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:com.example.slaughterhouseService.packSingleProductRequest)
+    // @@protoc_insertion_point(builder_scope:slaughterhouseService.packSingleProductRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:com.example.slaughterhouseService.packSingleProductRequest)
+  // @@protoc_insertion_point(class_scope:slaughterhouseService.packSingleProductRequest)
   private static final packSingleProductRequest DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new packSingleProductRequest();

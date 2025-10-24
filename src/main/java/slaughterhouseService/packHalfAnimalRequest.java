@@ -6,12 +6,12 @@
 package slaughterhouseService;
 
 /**
- * Protobuf type {@code com.example.slaughterhouseService.packHalfAnimalRequest}
+ * Protobuf type {@code slaughterhouseService.packHalfAnimalRequest}
  */
 @com.google.protobuf.Generated
 public final class packHalfAnimalRequest extends
     com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:com.example.slaughterhouseService.packHalfAnimalRequest)
+    // @@protoc_insertion_point(message_implements:slaughterhouseService.packHalfAnimalRequest)
     packHalfAnimalRequestOrBuilder {
 private static final long serialVersionUID = 0L;
   static {
@@ -234,11 +234,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code com.example.slaughterhouseService.packHalfAnimalRequest}
+   * Protobuf type {@code slaughterhouseService.packHalfAnimalRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.example.slaughterhouseService.packHalfAnimalRequest)
+      // @@protoc_insertion_point(builder_implements:slaughterhouseService.packHalfAnimalRequest)
           packHalfAnimalRequestOrBuilder
   {
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -254,7 +254,7 @@ private static final long serialVersionUID = 0L;
               packHalfAnimalRequest.class, packHalfAnimalRequest.Builder.class);
     }
 
-    // Construct using com.example.slaughterhouseService.packHalfAnimalRequest.newBuilder()
+    // Construct using slaughterhouseService.packHalfAnimalRequest.newBuilder()
     private Builder() {
 
     }
@@ -446,10 +446,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:com.example.slaughterhouseService.packHalfAnimalRequest)
+    // @@protoc_insertion_point(builder_scope:slaughterhouseService.packHalfAnimalRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:com.example.slaughterhouseService.packHalfAnimalRequest)
+  // @@protoc_insertion_point(class_scope:slaughterhouseService.packHalfAnimalRequest)
   private static final packHalfAnimalRequest DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new packHalfAnimalRequest();

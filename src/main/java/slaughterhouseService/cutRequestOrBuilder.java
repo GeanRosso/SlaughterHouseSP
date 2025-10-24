@@ -7,7 +7,7 @@ package slaughterhouseService;
 
 @com.google.protobuf.Generated
 public interface cutRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:com.example.slaughterhouseService.cutRequest)
+    // @@protoc_insertion_point(interface_extends:slaughterhouseService.cutRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

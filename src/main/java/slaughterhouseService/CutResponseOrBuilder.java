@@ -7,29 +7,29 @@ package slaughterhouseService;
 
 @com.google.protobuf.Generated
 public interface CutResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:com.example.slaughterhouseService.CutResponse)
+    // @@protoc_insertion_point(interface_extends:slaughterhouseService.CutResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .com.example.slaughterhouseService.Part parts = 1;</code>
+   * <code>repeated .slaughterhouseService.Part parts = 1;</code>
    */
   java.util.List<Part>
       getPartsList();
   /**
-   * <code>repeated .com.example.slaughterhouseService.Part parts = 1;</code>
+   * <code>repeated .slaughterhouseService.Part parts = 1;</code>
    */
   Part getParts(int index);
   /**
-   * <code>repeated .com.example.slaughterhouseService.Part parts = 1;</code>
+   * <code>repeated .slaughterhouseService.Part parts = 1;</code>
    */
   int getPartsCount();
   /**
-   * <code>repeated .com.example.slaughterhouseService.Part parts = 1;</code>
+   * <code>repeated .slaughterhouseService.Part parts = 1;</code>
    */
   java.util.List<? extends PartOrBuilder>
       getPartsOrBuilderList();
   /**
-   * <code>repeated .com.example.slaughterhouseService.Part parts = 1;</code>
+   * <code>repeated .slaughterhouseService.Part parts = 1;</code>
    */
   PartOrBuilder getPartsOrBuilder(
       int index);

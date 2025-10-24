@@ -7,7 +7,7 @@ package slaughterhouseService;
 
 @com.google.protobuf.Generated
 public interface registerAnimalRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:com.example.slaughterhouseService.registerAnimalRequest)
+    // @@protoc_insertion_point(interface_extends:slaughterhouseService.registerAnimalRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -26,4 +26,16 @@ public interface registerAnimalRequestOrBuilder extends
    * @return The weight.
    */
   double getWeight();
+
+  /**
+   * <code>string origin = 3;</code>
+   * @return The origin.
+   */
+  java.lang.String getOrigin();
+  /**
+   * <code>string origin = 3;</code>
+   * @return The bytes for origin.
+   */
+  com.google.protobuf.ByteString
+      getOriginBytes();
 }

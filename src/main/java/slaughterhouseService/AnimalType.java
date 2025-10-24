@@ -6,12 +6,12 @@
 package slaughterhouseService;
 
 /**
- * Protobuf type {@code com.example.slaughterhouseService.AnimalType}
+ * Protobuf type {@code slaughterhouseService.AnimalType}
  */
 @com.google.protobuf.Generated
 public final class AnimalType extends
     com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:com.example.slaughterhouseService.AnimalType)
+    // @@protoc_insertion_point(message_implements:slaughterhouseService.AnimalType)
     AnimalTypeOrBuilder {
 private static final long serialVersionUID = 0L;
   static {
@@ -262,11 +262,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code com.example.slaughterhouseService.AnimalType}
+   * Protobuf type {@code slaughterhouseService.AnimalType}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.example.slaughterhouseService.AnimalType)
+      // @@protoc_insertion_point(builder_implements:slaughterhouseService.AnimalType)
           AnimalTypeOrBuilder
   {
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -282,7 +282,7 @@ private static final long serialVersionUID = 0L;
               AnimalType.class, AnimalType.Builder.class);
     }
 
-    // Construct using com.example.slaughterhouseService.AnimalType.newBuilder()
+    // Construct using slaughterhouseService.AnimalType.newBuilder()
     private Builder() {
 
     }
@@ -516,10 +516,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:com.example.slaughterhouseService.AnimalType)
+    // @@protoc_insertion_point(builder_scope:slaughterhouseService.AnimalType)
   }
 
-  // @@protoc_insertion_point(class_scope:com.example.slaughterhouseService.AnimalType)
+  // @@protoc_insertion_point(class_scope:slaughterhouseService.AnimalType)
   private static final AnimalType DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new AnimalType();

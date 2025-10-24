@@ -6,12 +6,12 @@
 package slaughterhouseService;
 
 /**
- * Protobuf type {@code com.example.slaughterhouseService.Tray}
+ * Protobuf type {@code slaughterhouseService.Tray}
  */
 @com.google.protobuf.Generated
 public final class Tray extends
     com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:com.example.slaughterhouseService.Tray)
+    // @@protoc_insertion_point(message_implements:slaughterhouseService.Tray)
     TrayOrBuilder {
 private static final long serialVersionUID = 0L;
   static {
@@ -71,14 +71,14 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private java.util.List<Part> parts_;
   /**
-   * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+   * <code>repeated .slaughterhouseService.Part parts = 3;</code>
    */
   @java.lang.Override
   public java.util.List<Part> getPartsList() {
     return parts_;
   }
   /**
-   * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+   * <code>repeated .slaughterhouseService.Part parts = 3;</code>
    */
   @java.lang.Override
   public java.util.List<? extends PartOrBuilder>
@@ -86,21 +86,21 @@ private static final long serialVersionUID = 0L;
     return parts_;
   }
   /**
-   * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+   * <code>repeated .slaughterhouseService.Part parts = 3;</code>
    */
   @java.lang.Override
   public int getPartsCount() {
     return parts_.size();
   }
   /**
-   * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+   * <code>repeated .slaughterhouseService.Part parts = 3;</code>
    */
   @java.lang.Override
   public Part getParts(int index) {
     return parts_.get(index);
   }
   /**
-   * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+   * <code>repeated .slaughterhouseService.Part parts = 3;</code>
    */
   @java.lang.Override
   public PartOrBuilder getPartsOrBuilder(
@@ -111,7 +111,7 @@ private static final long serialVersionUID = 0L;
   public static final int ANIMAL_FIELD_NUMBER = 4;
   private Animal animal_;
   /**
-   * <code>.com.example.slaughterhouseService.Animal animal = 4;</code>
+   * <code>.slaughterhouseService.Animal animal = 4;</code>
    * @return Whether the animal field is set.
    */
   @java.lang.Override
@@ -119,7 +119,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>.com.example.slaughterhouseService.Animal animal = 4;</code>
+   * <code>.slaughterhouseService.Animal animal = 4;</code>
    * @return The animal.
    */
   @java.lang.Override
@@ -127,7 +127,7 @@ private static final long serialVersionUID = 0L;
     return animal_ == null ? Animal.getDefaultInstance() : animal_;
   }
   /**
-   * <code>.com.example.slaughterhouseService.Animal animal = 4;</code>
+   * <code>.slaughterhouseService.Animal animal = 4;</code>
    */
   @java.lang.Override
   public AnimalOrBuilder getAnimalOrBuilder() {
@@ -137,7 +137,7 @@ private static final long serialVersionUID = 0L;
   public static final int PART_FIELD_NUMBER = 5;
   private Part part_;
   /**
-   * <code>.com.example.slaughterhouseService.Part part = 5;</code>
+   * <code>.slaughterhouseService.Part part = 5;</code>
    * @return Whether the part field is set.
    */
   @java.lang.Override
@@ -145,7 +145,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000002) != 0);
   }
   /**
-   * <code>.com.example.slaughterhouseService.Part part = 5;</code>
+   * <code>.slaughterhouseService.Part part = 5;</code>
    * @return The part.
    */
   @java.lang.Override
@@ -153,7 +153,7 @@ private static final long serialVersionUID = 0L;
     return part_ == null ? Part.getDefaultInstance() : part_;
   }
   /**
-   * <code>.com.example.slaughterhouseService.Part part = 5;</code>
+   * <code>.slaughterhouseService.Part part = 5;</code>
    */
   @java.lang.Override
   public PartOrBuilder getPartOrBuilder() {
@@ -396,11 +396,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code com.example.slaughterhouseService.Tray}
+   * Protobuf type {@code slaughterhouseService.Tray}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.example.slaughterhouseService.Tray)
+      // @@protoc_insertion_point(builder_implements:slaughterhouseService.Tray)
           TrayOrBuilder
   {
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -416,7 +416,7 @@ private static final long serialVersionUID = 0L;
               Tray.class, Tray.Builder.class);
     }
 
-    // Construct using com.example.slaughterhouseService.Tray.newBuilder()
+    // Construct using slaughterhouseService.Tray.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -744,7 +744,7 @@ private static final long serialVersionUID = 0L;
             Part, Part.Builder, PartOrBuilder> partsBuilder_;
 
     /**
-     * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+     * <code>repeated .slaughterhouseService.Part parts = 3;</code>
      */
     public java.util.List<Part> getPartsList() {
       if (partsBuilder_ == null) {
@@ -754,7 +754,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+     * <code>repeated .slaughterhouseService.Part parts = 3;</code>
      */
     public int getPartsCount() {
       if (partsBuilder_ == null) {
@@ -764,7 +764,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+     * <code>repeated .slaughterhouseService.Part parts = 3;</code>
      */
     public Part getParts(int index) {
       if (partsBuilder_ == null) {
@@ -774,7 +774,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+     * <code>repeated .slaughterhouseService.Part parts = 3;</code>
      */
     public Builder setParts(
         int index, Part value) {
@@ -791,7 +791,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+     * <code>repeated .slaughterhouseService.Part parts = 3;</code>
      */
     public Builder setParts(
         int index, Part.Builder builderForValue) {
@@ -805,7 +805,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+     * <code>repeated .slaughterhouseService.Part parts = 3;</code>
      */
     public Builder addParts(Part value) {
       if (partsBuilder_ == null) {
@@ -821,7 +821,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+     * <code>repeated .slaughterhouseService.Part parts = 3;</code>
      */
     public Builder addParts(
         int index, Part value) {
@@ -838,7 +838,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+     * <code>repeated .slaughterhouseService.Part parts = 3;</code>
      */
     public Builder addParts(
         Part.Builder builderForValue) {
@@ -852,7 +852,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+     * <code>repeated .slaughterhouseService.Part parts = 3;</code>
      */
     public Builder addParts(
         int index, Part.Builder builderForValue) {
@@ -866,7 +866,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+     * <code>repeated .slaughterhouseService.Part parts = 3;</code>
      */
     public Builder addAllParts(
         java.lang.Iterable<? extends Part> values) {
@@ -881,7 +881,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+     * <code>repeated .slaughterhouseService.Part parts = 3;</code>
      */
     public Builder clearParts() {
       if (partsBuilder_ == null) {
@@ -894,7 +894,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+     * <code>repeated .slaughterhouseService.Part parts = 3;</code>
      */
     public Builder removeParts(int index) {
       if (partsBuilder_ == null) {
@@ -907,14 +907,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+     * <code>repeated .slaughterhouseService.Part parts = 3;</code>
      */
     public Part.Builder getPartsBuilder(
         int index) {
       return internalGetPartsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+     * <code>repeated .slaughterhouseService.Part parts = 3;</code>
      */
     public PartOrBuilder getPartsOrBuilder(
         int index) {
@@ -924,7 +924,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+     * <code>repeated .slaughterhouseService.Part parts = 3;</code>
      */
     public java.util.List<? extends PartOrBuilder>
          getPartsOrBuilderList() {
@@ -935,14 +935,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+     * <code>repeated .slaughterhouseService.Part parts = 3;</code>
      */
     public Part.Builder addPartsBuilder() {
       return internalGetPartsFieldBuilder().addBuilder(
           Part.getDefaultInstance());
     }
     /**
-     * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+     * <code>repeated .slaughterhouseService.Part parts = 3;</code>
      */
     public Part.Builder addPartsBuilder(
         int index) {
@@ -950,7 +950,7 @@ private static final long serialVersionUID = 0L;
           index, Part.getDefaultInstance());
     }
     /**
-     * <code>repeated .com.example.slaughterhouseService.Part parts = 3;</code>
+     * <code>repeated .slaughterhouseService.Part parts = 3;</code>
      */
     public java.util.List<Part.Builder>
          getPartsBuilderList() {
@@ -975,14 +975,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
             Animal, Animal.Builder, AnimalOrBuilder> animalBuilder_;
     /**
-     * <code>.com.example.slaughterhouseService.Animal animal = 4;</code>
+     * <code>.slaughterhouseService.Animal animal = 4;</code>
      * @return Whether the animal field is set.
      */
     public boolean hasAnimal() {
       return ((bitField0_ & 0x00000008) != 0);
     }
     /**
-     * <code>.com.example.slaughterhouseService.Animal animal = 4;</code>
+     * <code>.slaughterhouseService.Animal animal = 4;</code>
      * @return The animal.
      */
     public Animal getAnimal() {
@@ -993,7 +993,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.example.slaughterhouseService.Animal animal = 4;</code>
+     * <code>.slaughterhouseService.Animal animal = 4;</code>
      */
     public Builder setAnimal(Animal value) {
       if (animalBuilder_ == null) {
@@ -1009,7 +1009,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.example.slaughterhouseService.Animal animal = 4;</code>
+     * <code>.slaughterhouseService.Animal animal = 4;</code>
      */
     public Builder setAnimal(
         Animal.Builder builderForValue) {
@@ -1023,7 +1023,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.example.slaughterhouseService.Animal animal = 4;</code>
+     * <code>.slaughterhouseService.Animal animal = 4;</code>
      */
     public Builder mergeAnimal(Animal value) {
       if (animalBuilder_ == null) {
@@ -1044,7 +1044,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.example.slaughterhouseService.Animal animal = 4;</code>
+     * <code>.slaughterhouseService.Animal animal = 4;</code>
      */
     public Builder clearAnimal() {
       bitField0_ = (bitField0_ & ~0x00000008);
@@ -1057,7 +1057,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.example.slaughterhouseService.Animal animal = 4;</code>
+     * <code>.slaughterhouseService.Animal animal = 4;</code>
      */
     public Animal.Builder getAnimalBuilder() {
       bitField0_ |= 0x00000008;
@@ -1065,7 +1065,7 @@ private static final long serialVersionUID = 0L;
       return internalGetAnimalFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.example.slaughterhouseService.Animal animal = 4;</code>
+     * <code>.slaughterhouseService.Animal animal = 4;</code>
      */
     public AnimalOrBuilder getAnimalOrBuilder() {
       if (animalBuilder_ != null) {
@@ -1076,7 +1076,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.example.slaughterhouseService.Animal animal = 4;</code>
+     * <code>.slaughterhouseService.Animal animal = 4;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
             Animal, Animal.Builder, AnimalOrBuilder>
@@ -1096,14 +1096,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
             Part, Part.Builder, PartOrBuilder> partBuilder_;
     /**
-     * <code>.com.example.slaughterhouseService.Part part = 5;</code>
+     * <code>.slaughterhouseService.Part part = 5;</code>
      * @return Whether the part field is set.
      */
     public boolean hasPart() {
       return ((bitField0_ & 0x00000010) != 0);
     }
     /**
-     * <code>.com.example.slaughterhouseService.Part part = 5;</code>
+     * <code>.slaughterhouseService.Part part = 5;</code>
      * @return The part.
      */
     public Part getPart() {
@@ -1114,7 +1114,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.example.slaughterhouseService.Part part = 5;</code>
+     * <code>.slaughterhouseService.Part part = 5;</code>
      */
     public Builder setPart(Part value) {
       if (partBuilder_ == null) {
@@ -1130,7 +1130,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.example.slaughterhouseService.Part part = 5;</code>
+     * <code>.slaughterhouseService.Part part = 5;</code>
      */
     public Builder setPart(
         Part.Builder builderForValue) {
@@ -1144,7 +1144,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.example.slaughterhouseService.Part part = 5;</code>
+     * <code>.slaughterhouseService.Part part = 5;</code>
      */
     public Builder mergePart(Part value) {
       if (partBuilder_ == null) {
@@ -1165,7 +1165,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.example.slaughterhouseService.Part part = 5;</code>
+     * <code>.slaughterhouseService.Part part = 5;</code>
      */
     public Builder clearPart() {
       bitField0_ = (bitField0_ & ~0x00000010);
@@ -1178,7 +1178,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.com.example.slaughterhouseService.Part part = 5;</code>
+     * <code>.slaughterhouseService.Part part = 5;</code>
      */
     public Part.Builder getPartBuilder() {
       bitField0_ |= 0x00000010;
@@ -1186,7 +1186,7 @@ private static final long serialVersionUID = 0L;
       return internalGetPartFieldBuilder().getBuilder();
     }
     /**
-     * <code>.com.example.slaughterhouseService.Part part = 5;</code>
+     * <code>.slaughterhouseService.Part part = 5;</code>
      */
     public PartOrBuilder getPartOrBuilder() {
       if (partBuilder_ != null) {
@@ -1197,7 +1197,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.com.example.slaughterhouseService.Part part = 5;</code>
+     * <code>.slaughterhouseService.Part part = 5;</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
             Part, Part.Builder, PartOrBuilder>
@@ -1245,10 +1245,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:com.example.slaughterhouseService.Tray)
+    // @@protoc_insertion_point(builder_scope:slaughterhouseService.Tray)
   }
 
-  // @@protoc_insertion_point(class_scope:com.example.slaughterhouseService.Tray)
+  // @@protoc_insertion_point(class_scope:slaughterhouseService.Tray)
   private static final Tray DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new Tray();

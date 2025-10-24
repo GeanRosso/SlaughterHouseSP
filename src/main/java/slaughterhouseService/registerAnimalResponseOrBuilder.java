@@ -7,21 +7,21 @@ package slaughterhouseService;
 
 @com.google.protobuf.Generated
 public interface registerAnimalResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:com.example.slaughterhouseService.registerAnimalResponse)
+    // @@protoc_insertion_point(interface_extends:slaughterhouseService.registerAnimalResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.com.example.slaughterhouseService.Animal animal = 1;</code>
+   * <code>.slaughterhouseService.Animal animal = 1;</code>
    * @return Whether the animal field is set.
    */
   boolean hasAnimal();
   /**
-   * <code>.com.example.slaughterhouseService.Animal animal = 1;</code>
+   * <code>.slaughterhouseService.Animal animal = 1;</code>
    * @return The animal.
    */
   Animal getAnimal();
   /**
-   * <code>.com.example.slaughterhouseService.Animal animal = 1;</code>
+   * <code>.slaughterhouseService.Animal animal = 1;</code>
    */
   AnimalOrBuilder getAnimalOrBuilder();
 }

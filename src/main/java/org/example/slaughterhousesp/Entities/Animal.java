@@ -2,7 +2,8 @@ package org.example.slaughterhousesp.Entities;
 
 import jakarta.persistence.*;
 
-import java.util.Objects;
+import java.time.LocalDate;
+
 @Entity
 public class Animal
 {
@@ -20,9 +21,22 @@ public class Animal
     private boolean isAlive = true;
 
 
+    @Column (name = "arrival_timestamp" , nullable = false)
+    private LocalDate arrivalDate = LocalDate.now();
+
+    @Column (name = "origin" , nullable = false)
+    private String origin = "Unknown";
+
     public Animal(AnimalType animalType, double weight) {
         this.type = animalType;
         this.weight = weight;
+    }
+
+    public Animal(AnimalType animalType, double weight, String origin)
+    {
+        this.type = animalType;
+        this.weight = weight;
+        this.origin = origin;
     }
 
 
@@ -70,6 +84,26 @@ public class Animal
     public void setAlive(boolean alive)
     {
         isAlive = alive;
+    }
+
+    public LocalDate getArrivalDate()
+    {
+        return arrivalDate;
+    }
+
+    public void setArrivalDate(LocalDate arrivalDate)
+    {
+        this.arrivalDate = arrivalDate;
+    }
+
+    public String getOrigin()
+    {
+        return origin;
+    }
+
+    public void setOrigin(String origin)
+    {
+        this.origin = origin;
     }
 
 }

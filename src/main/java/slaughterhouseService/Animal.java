@@ -6,12 +6,12 @@
 package slaughterhouseService;
 
 /**
- * Protobuf type {@code com.example.slaughterhouseService.Animal}
+ * Protobuf type {@code slaughterhouseService.Animal}
  */
 @com.google.protobuf.Generated
 public final class Animal extends
     com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:com.example.slaughterhouseService.Animal)
+    // @@protoc_insertion_point(message_implements:slaughterhouseService.Animal)
     AnimalOrBuilder {
 private static final long serialVersionUID = 0L;
   static {
@@ -29,6 +29,7 @@ private static final long serialVersionUID = 0L;
   }
   private Animal() {
     type_ = "";
+    origin_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -44,6 +45,7 @@ private static final long serialVersionUID = 0L;
             Animal.class, Animal.Builder.class);
   }
 
+  private int bitField0_;
   public static final int ID_FIELD_NUMBER = 1;
   private int id_ = 0;
   /**
@@ -105,6 +107,71 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int ARRIVAL_TIME_FIELD_NUMBER = 4;
+  private com.google.protobuf.Timestamp arrivalTime_;
+  /**
+   * <code>.google.protobuf.Timestamp arrival_time = 4;</code>
+   * @return Whether the arrivalTime field is set.
+   */
+  @java.lang.Override
+  public boolean hasArrivalTime() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <code>.google.protobuf.Timestamp arrival_time = 4;</code>
+   * @return The arrivalTime.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getArrivalTime() {
+    return arrivalTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : arrivalTime_;
+  }
+  /**
+   * <code>.google.protobuf.Timestamp arrival_time = 4;</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getArrivalTimeOrBuilder() {
+    return arrivalTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : arrivalTime_;
+  }
+
+  public static final int ORIGIN_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object origin_ = "";
+  /**
+   * <code>string origin = 5;</code>
+   * @return The origin.
+   */
+  @java.lang.Override
+  public java.lang.String getOrigin() {
+    java.lang.Object ref = origin_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      origin_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string origin = 5;</code>
+   * @return The bytes for origin.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getOriginBytes() {
+    java.lang.Object ref = origin_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      origin_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -128,6 +195,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(type_)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 3, type_);
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeMessage(4, getArrivalTime());
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(origin_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 5, origin_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -147,6 +220,13 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(type_)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(3, type_);
+    }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, getArrivalTime());
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(origin_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(5, origin_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -170,6 +250,13 @@ private static final long serialVersionUID = 0L;
             other.getWeight())) return false;
     if (!getType()
         .equals(other.getType())) return false;
+    if (hasArrivalTime() != other.hasArrivalTime()) return false;
+    if (hasArrivalTime()) {
+      if (!getArrivalTime()
+          .equals(other.getArrivalTime())) return false;
+    }
+    if (!getOrigin()
+        .equals(other.getOrigin())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -188,6 +275,12 @@ private static final long serialVersionUID = 0L;
         java.lang.Double.doubleToLongBits(getWeight()));
     hash = (37 * hash) + TYPE_FIELD_NUMBER;
     hash = (53 * hash) + getType().hashCode();
+    if (hasArrivalTime()) {
+      hash = (37 * hash) + ARRIVAL_TIME_FIELD_NUMBER;
+      hash = (53 * hash) + getArrivalTime().hashCode();
+    }
+    hash = (37 * hash) + ORIGIN_FIELD_NUMBER;
+    hash = (53 * hash) + getOrigin().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -286,11 +379,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code com.example.slaughterhouseService.Animal}
+   * Protobuf type {@code slaughterhouseService.Animal}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:com.example.slaughterhouseService.Animal)
+      // @@protoc_insertion_point(builder_implements:slaughterhouseService.Animal)
           AnimalOrBuilder
   {
     public static final com.google.protobuf.Descriptors.Descriptor
@@ -306,15 +399,21 @@ private static final long serialVersionUID = 0L;
               Animal.class, Animal.Builder.class);
     }
 
-    // Construct using com.example.slaughterhouseService.Animal.newBuilder()
+    // Construct using slaughterhouseService.Animal.newBuilder()
     private Builder() {
-
+      maybeForceBuilderInitialization();
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessage
+              .alwaysUseFieldBuilders) {
+        internalGetArrivalTimeFieldBuilder();
+      }
     }
     @java.lang.Override
     public Builder clear() {
@@ -323,6 +422,12 @@ private static final long serialVersionUID = 0L;
       id_ = 0;
       weight_ = 0D;
       type_ = "";
+      arrivalTime_ = null;
+      if (arrivalTimeBuilder_ != null) {
+        arrivalTimeBuilder_.dispose();
+        arrivalTimeBuilder_ = null;
+      }
+      origin_ = "";
       return this;
     }
 
@@ -365,6 +470,17 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.type_ = type_;
       }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.arrivalTime_ = arrivalTimeBuilder_ == null
+            ? arrivalTime_
+            : arrivalTimeBuilder_.build();
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.origin_ = origin_;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -388,6 +504,14 @@ private static final long serialVersionUID = 0L;
       if (!other.getType().isEmpty()) {
         type_ = other.type_;
         bitField0_ |= 0x00000004;
+        onChanged();
+      }
+      if (other.hasArrivalTime()) {
+        mergeArrivalTime(other.getArrivalTime());
+      }
+      if (!other.getOrigin().isEmpty()) {
+        origin_ = other.origin_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -431,6 +555,18 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000004;
               break;
             } // case 26
+            case 34: {
+              input.readMessage(
+                  internalGetArrivalTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              origin_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -584,10 +720,203 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    // @@protoc_insertion_point(builder_scope:com.example.slaughterhouseService.Animal)
+    private com.google.protobuf.Timestamp arrivalTime_;
+    private com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> arrivalTimeBuilder_;
+    /**
+     * <code>.google.protobuf.Timestamp arrival_time = 4;</code>
+     * @return Whether the arrivalTime field is set.
+     */
+    public boolean hasArrivalTime() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>.google.protobuf.Timestamp arrival_time = 4;</code>
+     * @return The arrivalTime.
+     */
+    public com.google.protobuf.Timestamp getArrivalTime() {
+      if (arrivalTimeBuilder_ == null) {
+        return arrivalTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : arrivalTime_;
+      } else {
+        return arrivalTimeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.Timestamp arrival_time = 4;</code>
+     */
+    public Builder setArrivalTime(com.google.protobuf.Timestamp value) {
+      if (arrivalTimeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        arrivalTime_ = value;
+      } else {
+        arrivalTimeBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp arrival_time = 4;</code>
+     */
+    public Builder setArrivalTime(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (arrivalTimeBuilder_ == null) {
+        arrivalTime_ = builderForValue.build();
+      } else {
+        arrivalTimeBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp arrival_time = 4;</code>
+     */
+    public Builder mergeArrivalTime(com.google.protobuf.Timestamp value) {
+      if (arrivalTimeBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) != 0) &&
+          arrivalTime_ != null &&
+          arrivalTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getArrivalTimeBuilder().mergeFrom(value);
+        } else {
+          arrivalTime_ = value;
+        }
+      } else {
+        arrivalTimeBuilder_.mergeFrom(value);
+      }
+      if (arrivalTime_ != null) {
+        bitField0_ |= 0x00000008;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp arrival_time = 4;</code>
+     */
+    public Builder clearArrivalTime() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      arrivalTime_ = null;
+      if (arrivalTimeBuilder_ != null) {
+        arrivalTimeBuilder_.dispose();
+        arrivalTimeBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp arrival_time = 4;</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getArrivalTimeBuilder() {
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return internalGetArrivalTimeFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.Timestamp arrival_time = 4;</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getArrivalTimeOrBuilder() {
+      if (arrivalTimeBuilder_ != null) {
+        return arrivalTimeBuilder_.getMessageOrBuilder();
+      } else {
+        return arrivalTime_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : arrivalTime_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.Timestamp arrival_time = 4;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        internalGetArrivalTimeFieldBuilder() {
+      if (arrivalTimeBuilder_ == null) {
+        arrivalTimeBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getArrivalTime(),
+                getParentForChildren(),
+                isClean());
+        arrivalTime_ = null;
+      }
+      return arrivalTimeBuilder_;
+    }
+
+    private java.lang.Object origin_ = "";
+    /**
+     * <code>string origin = 5;</code>
+     * @return The origin.
+     */
+    public java.lang.String getOrigin() {
+      java.lang.Object ref = origin_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        origin_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string origin = 5;</code>
+     * @return The bytes for origin.
+     */
+    public com.google.protobuf.ByteString
+        getOriginBytes() {
+      java.lang.Object ref = origin_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        origin_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string origin = 5;</code>
+     * @param value The origin to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrigin(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      origin_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string origin = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOrigin() {
+      origin_ = getDefaultInstance().getOrigin();
+      bitField0_ = (bitField0_ & ~0x00000010);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string origin = 5;</code>
+     * @param value The bytes for origin to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOriginBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      origin_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+
+    // @@protoc_insertion_point(builder_scope:slaughterhouseService.Animal)
   }
 
-  // @@protoc_insertion_point(class_scope:com.example.slaughterhouseService.Animal)
+  // @@protoc_insertion_point(class_scope:slaughterhouseService.Animal)
   private static final Animal DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new Animal();

@@ -7,21 +7,21 @@ package slaughterhouseService;
 
 @com.google.protobuf.Generated
 public interface PackHalfAnimalResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:com.example.slaughterhouseService.PackHalfAnimalResponse)
+    // @@protoc_insertion_point(interface_extends:slaughterhouseService.PackHalfAnimalResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.com.example.slaughterhouseService.Product product = 1;</code>
+   * <code>.slaughterhouseService.Product product = 1;</code>
    * @return Whether the product field is set.
    */
   boolean hasProduct();
   /**
-   * <code>.com.example.slaughterhouseService.Product product = 1;</code>
+   * <code>.slaughterhouseService.Product product = 1;</code>
    * @return The product.
    */
   Product getProduct();
   /**
-   * <code>.com.example.slaughterhouseService.Product product = 1;</code>
+   * <code>.slaughterhouseService.Product product = 1;</code>
    */
   ProductOrBuilder getProductOrBuilder();
 }
